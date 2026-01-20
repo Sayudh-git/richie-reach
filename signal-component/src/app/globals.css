@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+:root {
+  --background: #050505;
+  --foreground: #e5e5e5;
+
+  /* Custom Colors */
+  --color-richie-black: #050505;
+  --color-richie-gray: #a3a3a3;
+  --color-richie-bad: #ef4444;
+  --color-richie-green: #00ff9d;
+  --color-richie-gold: #ffd700;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-richie-black: var(--color-richie-black);
+  --color-richie-gray: var(--color-richie-gray);
+  --color-richie-bad: var(--color-richie-bad);
+  --color-richie-green: var(--color-richie-green);
+  --color-richie-gold: var(--color-richie-gold);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+  overflow: hidden;
+}
+
+@keyframes shine {
+  from {
+    transform: translateX(-100%) skewX(-12deg);
+  }
+
+  to {
+    transform: translateX(200%) skewX(-12deg);
+  }
+}

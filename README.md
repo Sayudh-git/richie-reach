@@ -1,8 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Richie Reach - AgencyOS Landing Page
 
-## Getting Started
+![Richie Reach Thumbnail](https://github.com/user-attachments/assets/ed6b7c90-8a71-4617-83a5-81480808ca02)
 
-First, run the development server:
+## 🔥 Introduction
+
+Richie Reach is a modern, high-performance project management web application designed to streamline workflows, manage projects, and handle invoices with an elegant and responsive design.
+
+## 🔗 Live Preview
+
+Check out the live demo of Richie Reach here: [Live Preview](https://avento-app.vercel.app)
+
+## 🎥 Watch on YouTube
+
+Take a look at YouTube video by watching the demo: [Watch the Video](https://www.youtube.com/watch?v=8UlfQRGvAtU)
+
+## 💻 Tech Stack
+
+- **Next.js 16** – React framework for production
+- **React 19** – The library for web and native user interfaces
+- **TailwindCSS 4** – Utility-first CSS framework
+- **Shadcn UI** – Reusable components built on Radix UI
+- **Motion** – Production-ready motion library
+- **TypeScript** – Type-safe code
+
+## 🛠️ Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Shreyas-29/richie-reach.git
+```
+
+Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
@@ -10,27 +49,31 @@ npm run dev
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Environment Variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Rename `.env.example` to `.env.local` and configure:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```env
+NEXT_PUBLIC_APP_NAME="Richie Reach"
+NEXT_PUBLIC_APP_URL="http://localhost:3000"
+```
 
-## Learn More
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
+## 🚀 Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## ☕ Buy Me a Coffee
+
+If you enjoy using this project, consider supporting my work!
+
+[Buy Me a Coffee ☕](https://buymeacoffee.com/shreyas29)
