@@ -1,18 +1,46 @@
-import Footer from "@/components/marketing/footer";
-import Navbar from "@/components/marketing/navbar";
+import { base, heading, serif, mono } from "@/constants";
+import "@/styles/globals.css";
+import { cn, generateMetadata } from "@/utils";
+import Providers from "@/components/global/providers";
+import FlareCursor from "@/components/global/flare-cursor";
+import LoadingScreen from "@/components/global/loading-screen";
+import Script from "next/script";
 
-const MarketingLayout = ({
+export const metadata = generateMetadata();
+
+export default function RootLayout({
     children,
 }: {
     children: React.ReactNode;
-}) => {
+}) {
     return (
-        <main className="w-full relative">
-            <Navbar />
-            {children}
-            <Footer />
-        </main>
+        <html lang="en" suppressHydrationWarning>
+            <body
+                className={cn(
+                    "min-h-dvh bg-background text-foreground font-base antialiased overflow-x-hidden dark",
+                    base.variable,
+                    heading.variable,
+                    serif.variable,
+                    mono.variable,
+                )}
+            >
+                <Providers>
+                    <LoadingScreen />
+                    <FlareCursor />
+                    {children}
+                </Providers>
+                <Script
+                    id="cal-embed"
+                    strategy="afterInteractive"
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+                        Cal("init", "15min", {origin:"https://app.cal.com"});
+                        Cal.ns["15min"]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#18181b"},"dark":{"cal-brand":"#00ff88"}},"hideEventTypeDetails":false,"layout":"month_view"});
+                        `
+                    }}
+                />
+            </body>
+        </html >
     );
 };
-
-export default MarketingLayout;
