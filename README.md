@@ -1,34 +1,46 @@
-# Richie Reach - AgencyOS Landing Page
+# Richie Reach
 
-![Richie Reach Thumbnail](https://github.com/user-attachments/assets/ed6b7c90-8a71-4617-83a5-81480808ca02)
+**Signal-First Outbound Prospecting Platform**
 
-## 🔥 Introduction
+Richie Reach transforms how B2B teams approach outbound sales by capturing fresh engagement signals from public LinkedIn activity and delivering ICP-filtered, enriched prospects directly to your outbound stack.
 
-Richie Reach is a modern, high-performance project management web application designed to streamline workflows, manage projects, and handle invoices with an elegant and responsive design.
+## 🎯 What is Richie Reach?
 
-## 🔗 Live Preview
+Richie Reach is a signal intelligence platform that monitors public LinkedIn engagement to identify prospects showing active buying intent. Rather than cold outreach to static databases, we deliver weekly queues of prospects who have recently engaged with topics relevant to your solution—complete with context for personalized outreach.
 
-Check out the live demo of Richie Reach here: [Live Preview](https://avento-app.vercel.app)
+### Key Features
 
-## 🎥 Watch on YouTube
-
-Take a look at YouTube video by watching the demo: [Watch the Video](https://www.youtube.com/watch?v=8UlfQRGvAtU)
+- **🎣 Signal Capture** – Monitor public LinkedIn engagement around your keywords, topics, and themes
+- **🎯 ICP Filtering** – Filter prospects by geography, role, seniority, company size, and industry before enrichment
+- **⚡ Fresh Delivery** – Signals delivered within 24 hours of engagement to maximize relevance
+- **🔗 Stack Integration** – Direct delivery via CSV, Clay tables, or webhooks to Smartlead, HubSpot, Salesforce, and more
+- **💰 Credit Savings** – Save 60%+ on enrichment credits by filtering before enriching
+- **♾️ Unlimited Scale** – No profile monitoring limits—track as many themes as needed
 
 ## 💻 Tech Stack
 
-- **Next.js 16** – React framework for production
-- **React 19** – The library for web and native user interfaces
-- **TailwindCSS 4** – Utility-first CSS framework
-- **Shadcn UI** – Reusable components built on Radix UI
-- **Motion** – Production-ready motion library
-- **TypeScript** – Type-safe code
+- **Next.js 15** – React framework for production
+- **React 19** – Modern UI library
+- **TypeScript** – Type-safe development
+- **TailwindCSS 4** – Utility-first styling
+- **Shadcn UI** – Reusable component library
+- **Framer Motion** – Production-ready animations
+- **Cal.com** – Embedded scheduling
 
-## 🛠️ Installation
+## 🛠️ Getting Started
+
+### Prerequisites
+
+- Node.js 18+ 
+- npm, yarn, or pnpm
+
+### Installation
 
 Clone the repository:
 
 ```bash
-git clone https://github.com/Shreyas-29/richie-reach.git
+git clone https://github.com/Sayudh-git/richie-reach.git
+cd richie-reach
 ```
 
 Install dependencies:
@@ -41,6 +53,8 @@ yarn install
 pnpm install
 ```
 
+### Development
+
 Run the development server:
 
 ```bash
@@ -51,29 +65,72 @@ yarn dev
 pnpm dev
 ```
 
+Open [http://localhost:3000](http://localhost:3000) to view the application.
+
 ### Environment Variables
 
-Rename `.env.example` to `.env.local` and configure:
+Create a `.env.local` file in the root directory:
 
 ```env
 NEXT_PUBLIC_APP_NAME="Richie Reach"
 NEXT_PUBLIC_APP_URL="http://localhost:3000"
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+## 🚀 Deployment
 
-## 🚀 Deploy on Vercel
+This application is optimized for deployment on [Vercel](https://vercel.com):
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Sayudh-git/richie-reach)
 
-Check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+For other deployment options, refer to the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying).
 
-## 📜 License
+## 🏗️ Project Structure
+
+```
+richie-reach/
+├── src/
+│   ├── app/              # Next.js app directory
+│   │   ├── (marketing)/  # Marketing pages
+│   │   └── dashboard/    # Dashboard pages
+│   ├── components/       # React components
+│   │   ├── global/       # Shared components
+│   │   ├── marketing/    # Marketing section components
+│   │   └── ui/           # UI primitives
+│   ├── constants/        # App constants and config
+│   ├── hooks/            # Custom React hooks
+│   ├── styles/           # Global styles
+│   └── utils/            # Utility functions
+├── public/               # Static assets
+│   ├── fonts/            # Custom fonts
+│   ├── icons/            # Integration icons
+│   └── images/           # Images and illustrations
+└── components.json       # Shadcn UI config
+```
+
+## 🎨 Design Features
+
+- **Modern Glassmorphism** – Sleek, premium aesthetic
+- **Custom Typography** – Space Grotesk & EB Garamond fonts
+- **Responsive Design** – Mobile-first approach
+- **Smooth Animations** – Framer Motion powered interactions
+- **Dark Mode Optimized** – Built for dark interfaces
+
+## 🤝 Built For
+
+- **B2B SaaS Companies** – Series A-C teams with high-ACV products
+- **Outbound Agencies** – White-label signal feeds for client campaigns
+- **SDR Teams** – 5+ person teams focused on deliverability and pipeline
+
+## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## ☕ Buy Me a Coffee
+## 🔗 Links
 
-If you enjoy using this project, consider supporting my work!
+- **Website**: [richiereach.com](https://richiereach.com) _(placeholder)_
+- **Documentation**: Coming soon
+- **Support**: [Book a call](https://cal.com/sayudh/15min)
 
-[Buy Me a Coffee ☕](https://buymeacoffee.com/shreyas29)
+---
+
+Built with ❤️ for the future of signal-driven outbound prospecting
