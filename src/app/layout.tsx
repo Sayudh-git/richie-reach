@@ -5,8 +5,6 @@ import Providers from "@/components/global/providers";
 import FlareCursor from "@/components/global/flare-cursor";
 import LoadingScreen from "@/components/global/loading-screen";
 import Script from "next/script";
-import Navbar from "@/components/marketing/navbar";
-import Footer from "@/components/marketing/footer";
 
 export const metadata = generateMetadata();
 
@@ -29,9 +27,7 @@ export default function RootLayout({
                 <Providers>
                     <LoadingScreen />
                     <FlareCursor />
-                    <Navbar />
                     {children}
-                    <Footer />
                 </Providers>
                 <Script
                     id="cal-embed"
