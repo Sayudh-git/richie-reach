@@ -46,6 +46,7 @@ const Difference = () => {
                         transition={{ duration: 0.6 }}
                     >
                         Built <span className="font-serif italic text-emerald-400">for timing</span>.
+                        <span className="sr-only"> — LinkedIn engagement leads vs static databases</span>
                     </motion.h2>
                     <motion.p
                         className="text-[#737373] text-lg text-center max-w-2xl"
@@ -144,7 +145,7 @@ const Difference = () => {
                             <div className="flex items-center justify-between mb-8">
                                 <h3 className="text-xl font-semibold text-white">Richie Reach</h3>
                                 <div className="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[10px] font-semibold uppercase tracking-wider shadow-[0_0_10px_rgba(16,185,129,0.15)]">
-                                    Signal-First
+                                    Engagement-Led
                                 </div>
                             </div>
 

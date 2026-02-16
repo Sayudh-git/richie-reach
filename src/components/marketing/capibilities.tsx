@@ -116,6 +116,7 @@ const Capibilities = () => {
                     <span className="text-white">What you </span>
                     <span className="font-serif italic text-[#00FF94]">get</span>
                     <span className="text-white">.</span>
+                    <span className="sr-only"> — Weekly ICP-filtered LinkedIn engagement leads delivered to your stack</span>
                 </motion.h2>
 
                 <motion.p
@@ -149,7 +150,7 @@ const Capibilities = () => {
                         <div className="mt-6 relative h-48 transition-transform duration-500 group-hover:scale-[1.02]">
                             <Image
                                 src={capabilities[0].illustration}
-                                alt="Signal classification"
+                                alt="LinkedIn engagement signal classification showing intent types and engagement recency"
                                 width={500}
                                 height={500}
                                 unoptimized
@@ -176,7 +177,7 @@ const Capibilities = () => {
                         <div className="mt-6 relative h-48 transition-transform duration-500 group-hover:scale-[1.02]">
                             <Image
                                 src={capabilities[1].illustration}
-                                alt="Fresh signals"
+                                alt="Fresh LinkedIn engagement signals delivered within 24 hours of prospect activity"
                                 width={500}
                                 height={500}
                                 unoptimized
@@ -204,7 +205,7 @@ const Capibilities = () => {
                         <div className="mt-6 relative h-48 transition-transform duration-500 group-hover:scale-[1.02]">
                             <Image
                                 src={capabilities[2].illustration}
-                                alt={capabilities[2].title}
+                                alt="ICP filtering interface showing geography, role, seniority, and industry filters for LinkedIn leads"
                                 width={500}
                                 height={500}
                                 unoptimized
@@ -231,7 +232,7 @@ const Capibilities = () => {
                         <div className="mt-6 relative h-48 transition-transform duration-500 group-hover:scale-[1.02]">
                             <Image
                                 src={capabilities[3].illustration}
-                                alt="Weekly delivery"
+                                alt="Weekly delivery of 500 to 2000 qualified LinkedIn engagement leads"
                                 width={500}
                                 height={500}
                                 unoptimized

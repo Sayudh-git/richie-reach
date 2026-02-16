@@ -18,14 +18,14 @@ const Cta = () => {
                 <div className="max-w-4xl mx-auto text-center relative z-10">
 
                     <motion.div
-                        className="relative p-8 md:p-16 rounded-[40px] border border-white/[0.08] bg-[#111] overflow-hidden group"
+                        className="relative p-8 md:p-16 rounded-3xl md:rounded-[40px] border border-white/[0.08] bg-[#111] overflow-hidden group"
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.7 }}
                     >
                         {/* Hover border glow — sits behind content */}
-                        <div className="absolute inset-0 rounded-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+                        <div className="absolute inset-0 rounded-3xl md:rounded-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
                             style={{
                                 background: 'linear-gradient(135deg, rgba(16,185,129,0.15) 0%, transparent 50%, rgba(16,185,129,0.08) 100%)',
                             }}
@@ -55,7 +55,7 @@ const Cta = () => {
 
                         <div className="flex flex-col md:flex-row items-center justify-center gap-4 relative z-10">
                             <Button
-                                className="h-14 px-8 text-lg font-semibold bg-white text-black hover:bg-gray-200 rounded-full transition-all hover:scale-105 active:scale-95 shadow-[0_0_40px_-5px_rgba(255,255,255,0.3)]"
+                                className="h-12 sm:h-14 px-6 sm:px-8 text-base sm:text-lg font-semibold bg-white text-black hover:bg-gray-200 rounded-full transition-all hover:scale-105 active:scale-95 shadow-[0_0_40px_-5px_rgba(255,255,255,0.3)] w-full sm:w-auto"
                                 data-cal-link="sayudh/15min"
                                 data-cal-namespace="15min"
                                 data-cal-config='{"layout":"month_view"}'

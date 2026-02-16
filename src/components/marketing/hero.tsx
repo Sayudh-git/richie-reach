@@ -96,7 +96,7 @@ const Hero = () => {
                     <div className="absolute inset-0">
                         <NextImage
                             src="/images/hero-image.jpg"
-                            alt="Background"
+                            alt="Richie Reach dashboard showing LinkedIn engagement leads filtered by ICP"
                             fill
                             className="object-cover opacity-60"
                             priority
@@ -123,7 +123,7 @@ const Hero = () => {
             <Wrapper className="relative z-10 flex flex-col items-center">
 
                 {/* Hero Content - Centered */}
-                <div className="w-full max-w-4xl mx-auto flex flex-col items-center text-center space-y-8 mt-12 lg:mt-20">
+                <div className="w-full max-w-4xl mx-auto flex flex-col items-center text-center space-y-6 sm:space-y-8 mt-8 lg:mt-20 px-2 sm:px-0">
 
                     {/* Overline */}
                     <motion.div
@@ -133,7 +133,7 @@ const Hero = () => {
                         className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] backdrop-blur-md"
                     >
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                        <span className="text-xs font-medium text-[#D4D4D4] tracking-wide">LinkedIn Leads</span>
+                        <span className="text-xs font-medium text-[#D4D4D4] tracking-wide">Signal Intelligence</span>
                     </motion.div>
 
                     {/* Main Headline */}
@@ -141,15 +141,17 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-                        className="text-5xl md:text-6xl lg:text-[76px] font-bold tracking-tight leading-[1.05] text-[#F5F5F5]"
+                        className="text-[40px] sm:text-5xl md:text-6xl lg:text-[76px] font-bold tracking-tight leading-[1.08] text-[#F5F5F5]"
                     >
                         Find active leads from
                         <br className="hidden md:block" />
-                        <svg className="inline-block align-middle h-[0.72em] w-[0.72em] relative -top-[0.05em] rounded-[0.08em] mx-1" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="72" height="72" rx="8" fill="#0A66C2"/>
-                            <path d="M51.35 52.28h-7.39V42.05c0-2.44-.05-5.57-3.4-5.57-3.4 0-3.92 2.65-3.92 5.39v10.41h-7.39V30.2h7.1v3.01h.1c.99-1.87 3.4-3.84 7-3.84 7.49 0 8.87 4.93 8.87 11.34v11.57h.03zM24.37 27.19a4.29 4.29 0 1 1 0-8.58 4.29 4.29 0 0 1 0 8.58zm3.7 25.09h-7.4V30.2h7.4v22.08z" fill="#fff"/>
-                        </svg>{' '}
-                        <span className="font-serif italic font-normal text-emerald-400">engagement</span>.
+                        <span className="block sm:inline-flex items-baseline whitespace-nowrap">
+                            <svg className="inline-block h-[0.72em] w-[0.72em] rounded-[0.08em] mr-3 self-center relative top-[0.02em] md:top-[0.12em]" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="72" height="72" rx="8" fill="#0A66C2"/>
+                                <path d="M51.35 52.28h-7.39V42.05c0-2.44-.05-5.57-3.4-5.57-3.4 0-3.92 2.65-3.92 5.39v10.41h-7.39V30.2h7.1v3.01h.1c.99-1.87 3.4-3.84 7-3.84 7.49 0 8.87 4.93 8.87 11.34v11.57h.03zM24.37 27.19a4.29 4.29 0 1 1 0-8.58 4.29 4.29 0 0 1 0 8.58zm3.7 25.09h-7.4V30.2h7.4v22.08z" fill="#fff"/>
+                            </svg>
+                            <span className="font-serif italic font-normal text-emerald-400">engagement</span>.
+                        </span>
                     </motion.h1>
 
                     {/* Subheadline */}
@@ -157,7 +159,7 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.6 }}
-                        className="text-lg md:text-xl text-[#737373] max-w-2xl mx-auto leading-relaxed tracking-[0.01em]"
+                        className="text-base sm:text-lg md:text-xl text-[#737373] max-w-2xl mx-auto leading-relaxed tracking-[0.01em] px-2 sm:px-0"
                     >
                         Get prospects who engaged with posts about your topic this week. Filtered to your ICP, ready for outreach.
                     </motion.p>
@@ -219,7 +221,7 @@ const Hero = () => {
                                 <p className="text-[10px] uppercase text-[#525252] font-semibold tracking-wider px-3 mb-0.5">Recent LinkedIn Activity</p>
                                 <p className="text-[11px] text-[#525252] px-3 mb-3">Prospects who engaged with &apos;marketing automation&apos; posts last week.</p>
                                 {/* Fixed height container to prevent layout shift during cycling */}
-                                <div className="h-[300px] overflow-hidden relative">
+                                <div className="h-[280px] sm:h-[300px] overflow-hidden relative">
                                     <div className="flex flex-col gap-2">
                                         <AnimatePresence mode="popLayout" initial={false}>
                                             {visibleItems.map((item) => (

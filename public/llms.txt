@@ -1,0 +1,37 @@
+# Richie Reach
+
+> LinkedIn engagement leads for outbound teams. We monitor public LinkedIn post engagement — comments, reactions, and shares — to find prospects actively signaling buying intent around your keywords.
+
+## What Richie Reach Does
+
+Richie Reach is a B2B lead generation service that captures real-time engagement signals from LinkedIn. Instead of selling static databases or requiring you to operate complex tools, we deliver weekly queues of ICP-filtered, enriched prospects who recently engaged with content relevant to your offer.
+
+## How It Works
+
+1. **Signal Capture**: We monitor public LinkedIn engagement (comments, reactions, posts) around your target keywords and themes. No client account access required.
+2. **ICP Filtering**: Every signal is matched against your Ideal Customer Profile — geography, role, seniority, industry, company size.
+3. **Enrichment & Delivery**: Qualified leads are enriched with verified email, company data, and engagement context, then delivered weekly via CSV, Clay, or direct webhook.
+
+## Key Differentiators
+
+- **Engagement-led, not database-led**: Prospects are identified from recent LinkedIn activity, not scraped from stale databases.
+- **Signals delivered within 24 hours**: Weekly queues capture engagement from the past 7 days. No months-old contacts.
+- **Done-for-you or signal feed**: Full GTME (Go-To-Market Execution) service, or just the upstream signal feed — you choose.
+- **No scraping tool**: This is a managed service, not a Chrome extension or self-serve platform.
+- **Suppression lists and opt-outs**: We maintain suppression lists and respect removal requests.
+
+## Integrations
+
+CSV download, Clay, Zapier, Webhook, Smartlead, Lemlist, Instantly, HubSpot, Salesforce, Slack. Custom integrations available.
+
+## Pricing
+
+Volume-based pricing depending on ICP complexity and service level. Starts with a free 7-day pilot to validate fit. No long-term commitment required to test.
+
+## Getting Started
+
+Book a 20-minute call to discuss your ICP, keywords, and signal themes. If it's a fit, we run a 7-day pilot to deliver a sample feed.
+
+- Website: https://richiereach.tech
+- Contact: hello@richiereach.tech
+- Full details: https://richiereach.tech/llms-full.txt

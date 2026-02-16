@@ -4,7 +4,7 @@ import { cn } from "@/utils";
 import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
 import React from 'react';
-import { NAV_LINKS, Routes } from "@/constants";
+import { NAV_LINKS } from "@/constants";
 import { Button } from "../ui/button";
 
 interface Props {
@@ -58,16 +58,17 @@ const MobileMenu = ({ isOpen, setIsOpen }: Props) => {
                         }}
                         className="flex flex-col gap-3 pt-4"
                     >
-                        <Link href={Routes.Home}>
-                            <Button
-                                size="default"
-                                variant="white"
-                                className="w-full"
-                                onClick={() => setIsOpen(false)}
-                            >
-                                Start for free
-                            </Button>
-                        </Link>
+                        <Button
+                            size="default"
+                            variant="white"
+                            className="w-full"
+                            onClick={() => setIsOpen(false)}
+                            data-cal-link="sayudh/15min"
+                            data-cal-namespace="15min"
+                            data-cal-config='{"layout":"month_view"}'
+                        >
+                            Talk to Founder
+                        </Button>
                     </motion.div>
                 </motion.div>
             )}
