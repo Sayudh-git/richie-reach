@@ -125,12 +125,6 @@ richie-reach/
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🔗 Links
 
-- **Website**: [richiereach.com](https://richiereach.com) _(placeholder)_
-- **Documentation**: Coming soon
-- **Support**: [Book a call](https://cal.com/sayudh/15min)
-
----
 
 Built with ❤️ for the future of signal-driven outbound prospecting
