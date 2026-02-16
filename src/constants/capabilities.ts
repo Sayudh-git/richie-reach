@@ -72,12 +72,12 @@ export const stats = [
     },
     {
         id: 2,
-        value: "Save 60%+ on credits.",
+        value: "Pre-filtered prospects.",
         label: "",
-        description: "Columns, filters, and context fields.",
+        description: "Only contacts matching your ICP. Save enrichment credits on bad fits.",
         button: {
             text: "Get Started",
-            href: "#"
+            href: "#contact"
         }
     }
 ];

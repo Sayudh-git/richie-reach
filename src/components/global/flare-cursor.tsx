@@ -86,7 +86,18 @@ const FlareCursor = () => {
                 transform: 'translate(-50%, -50%)',
             }}
         >
+            {/* Core dot */}
             <div className="w-full h-full rounded-full bg-foreground" />
+            {/* Emerald glow ring */}
+            <div
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"
+                style={{
+                    width: '40px',
+                    height: '40px',
+                    background: 'radial-gradient(circle, rgba(0,255,148,0.15) 0%, transparent 70%)',
+                    filter: 'blur(2px)',
+                }}
+            />
         </div>
     );
 };

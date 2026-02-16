@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { capabilities, stats } from '@/constants/capabilities';
 import Wrapper from '@/components/global/wrapper';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'motion/react';
 import Link from 'next/link';
 import { cn } from '@/utils';
 import { Button } from "../ui/button";
@@ -29,21 +29,41 @@ const FocusCard: React.FC<CardProps> = ({
     const isHovered = hovered === index;
     const isBlurred = hovered !== null && hovered !== index;
 
+    // 3D tilt effect
+    const mouseX = useMotionValue(0.5);
+    const mouseY = useMotionValue(0.5);
+
+    const rotateX = useSpring(useTransform(mouseY, [0, 1], [5, -5]), { stiffness: 300, damping: 30 });
+    const rotateY = useSpring(useTransform(mouseX, [0, 1], [-5, 5]), { stiffness: 300, damping: 30 });
+
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        mouseX.set((e.clientX - rect.left) / rect.width);
+        mouseY.set((e.clientY - rect.top) / rect.height);
+    };
+
+    const handleMouseLeave = () => {
+        mouseX.set(0.5);
+        mouseY.set(0.5);
+        setHovered(null);
+    };
+
     return (
         <motion.div
             onMouseEnter={() => setHovered(index)}
-            onMouseLeave={() => setHovered(null)}
+            onMouseLeave={handleMouseLeave}
+            onMouseMove={handleMouseMove}
             className={cn("relative group", className)}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 30, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay }}
-            animate={{
-                filter: isBlurred ? "blur(3px) brightness(0.7)" : "blur(0px) brightness(1)",
-                scale: isHovered ? 1.02 : 1,
-            }}
+            transition={{ duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] }}
             style={{
-                transition: 'filter 0.3s ease, transform 0.3s ease',
+                rotateX,
+                rotateY,
+                transformPerspective: 1200,
+                filter: isBlurred ? "blur(3px) brightness(0.7)" : "blur(0px) brightness(1)",
+                transition: 'filter 0.3s ease',
             }}
         >
             {/* Animated border glow on hover */}
@@ -87,7 +107,7 @@ const Capibilities = () => {
             <Wrapper>
                 {/* Headline with Serif Mixing */}
                 <motion.h2
-                    className="text-5xl lg:text-[64px] font-bold text-center leading-tight mb-8"
+                    className="text-5xl lg:text-[64px] font-bold text-center leading-tight mb-8 text-gradient-subtle"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -230,10 +250,10 @@ const Capibilities = () => {
                         >
                             <div className="relative">
                                 <h3 className="text-3xl lg:text-4xl font-bold text-[#00FF94] mb-2 group-hover:drop-shadow-[0_0_20px_rgba(0,255,148,0.3)] transition-all duration-300">
-                                    ∞ Scale
+                                    No keyword limits.
                                 </h3>
                                 <p className="text-sm text-muted-foreground">
-                                    Not limited to a fixed list of profiles. Track as many themes as you need.
+                                    Track as many topics as you need. No caps on volume or themes.
                                 </p>
                             </div>
                         </FocusCard>

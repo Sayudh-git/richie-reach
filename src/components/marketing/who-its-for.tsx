@@ -15,7 +15,7 @@ const audiences = [
             "6+ month sales cycles",
             "Outbound-first GTM"
         ],
-        accent: "B2B SAAS"
+        accent: "B2B SaaS"
     },
     {
         headline: "For outbound agencies.",
@@ -125,7 +125,7 @@ const WhoItsFor = () => {
                         {/* Headline - Always visible and on top */}
                         <div className="relative z-20 text-center px-6 mb-12">
                             <motion.h2
-                                className="text-5xl lg:text-[64px] font-bold leading-tight mb-6"
+                                className="text-5xl lg:text-[64px] font-bold leading-tight mb-6 text-gradient-subtle"
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}

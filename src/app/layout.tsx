@@ -4,6 +4,7 @@ import { cn, generateMetadata } from "@/utils";
 import Providers from "@/components/global/providers";
 import FlareCursor from "@/components/global/flare-cursor";
 import LoadingScreen from "@/components/global/loading-screen";
+import SmoothScroll from "@/components/global/smooth-scroll";
 import Script from "next/script";
 
 import Footer from "@/components/marketing/footer";
@@ -30,11 +31,14 @@ export default function RootLayout({
                 <Providers>
                     <LoadingScreen />
                     <FlareCursor />
-                    <main className="w-full relative">
-                        <Navbar />
-                        {children}
-                        <Footer />
-                    </main>
+                    <SmoothScroll>
+                        <div className="noise-overlay" aria-hidden="true" />
+                        <main className="w-full relative">
+                            <Navbar />
+                            {children}
+                            <Footer />
+                        </main>
+                    </SmoothScroll>
                 </Providers>
                 <Script
                     id="cal-embed"

@@ -29,18 +29,22 @@ const steps = [
     {
         number: "03",
         label: "Action",
-        title: "Push to your stack",
-        description: "CSV, Clay table, or webhook into your outbound stack. Your choice."
+        title: (
+            <>
+                Deliver to your <span className="font-serif italic font-normal text-emerald-400">tools</span>
+            </>
+        ),
+        description: "CSV, Clay table, or webhook. Plug into Lemlist, Smartlead, HubSpot. Your choice."
     },
 ];
 
 const Workflow = () => {
     return (
-        <section id="workflow" className="w-full py-24 lg:py-40 relative bg-[#0A0A0A] overflow-hidden">
+        <section id="workflow" className="w-full py-24 lg:py-40 relative bg-[#0A0A0A] overflow-hidden section-fade-top">
             <Wrapper>
                 <div className="flex flex-col items-center">
                     <motion.h2
-                        className="text-4xl lg:text-5xl font-bold text-center leading-tight text-[#F5F5F5] mb-20"
+                        className="text-4xl lg:text-5xl font-bold text-center leading-tight text-gradient-subtle mb-20"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
