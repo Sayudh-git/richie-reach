@@ -1,9 +1,16 @@
 import { Metadata } from "next";
 
+const SITE_URL = "https://richiereach.tech";
+const SITE_NAME = "Richie Reach";
+const DEFAULT_TITLE = "LinkedIn Engagement Leads for Outbound | Richie Reach";
+const DEFAULT_DESCRIPTION =
+    "Find active leads from LinkedIn post engagement. ICP-filtered, enriched, and delivered weekly — no scraping, no stale databases. Start your free pilot.";
+const OG_IMAGE = `${SITE_URL}/images/og-image.png`;
+
 export const generateMetadata = ({
-    title = "Richie Reach | Real-time LinkedIn Signal Handoff",
-    description = "Turn social signals into pipeline with the Founder-led outbound catalyst.",
-    image = "/images/og-image.png",
+    title = DEFAULT_TITLE,
+    description = DEFAULT_DESCRIPTION,
+    image = OG_IMAGE,
     icons = [
         {
             rel: "apple-touch-icon",
@@ -27,5 +34,45 @@ export const generateMetadata = ({
     title,
     description,
     icons,
-    ...(noIndex && { robots: { index: false, follow: false } }),
+    metadataBase: new URL(SITE_URL),
+    alternates: {
+        canonical: "/",
+    },
+    openGraph: {
+        type: "website",
+        locale: "en_US",
+        url: SITE_URL,
+        siteName: SITE_NAME,
+        title,
+        description,
+        images: image
+            ? [
+                {
+                    url: image,
+                    width: 1200,
+                    height: 630,
+                    alt: "Richie Reach — LinkedIn Engagement Leads for Outbound Teams",
+                },
+            ]
+            : [],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title,
+        description,
+        images: image ? [image] : [],
+    },
+    robots: noIndex
+        ? { index: false, follow: false }
+        : {
+            index: true,
+            follow: true,
+            googleBot: {
+                index: true,
+                follow: true,
+                "max-video-preview": -1,
+                "max-image-preview": "large",
+                "max-snippet": -1,
+            },
+        },
 });

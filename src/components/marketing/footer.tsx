@@ -15,7 +15,7 @@ const Footer = () => {
                             Richie Reach
                         </h3>
                         <p className="text-[13px] text-[#808080]">
-                            Signal-first outbound infrastructure.
+                            LinkedIn engagement leads for outbound teams.
                         </p>
                     </div>
 
