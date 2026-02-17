@@ -72,6 +72,9 @@ const Membership = () => {
                     >
                         <span
                             role="button"
+                            tabIndex={0}
+                            aria-pressed={billingCycle === 'monthly'}
+                            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setBillingCycle('monthly'); } }}
                             onClick={() => setBillingCycle('monthly')}
                             className={cn(
                                 "text-sm font-medium transition-colors cursor-pointer",
@@ -82,6 +85,7 @@ const Membership = () => {
 
                         <button
                             onClick={() => setBillingCycle(billingCycle === 'monthly' ? 'yearly' : 'monthly')}
+                            aria-label={`Switch to ${billingCycle === 'monthly' ? 'yearly' : 'monthly'} billing`}
                             className={cn(
                                 "relative w-10 h-6 rounded-full transition-colors cursor-pointer group",
                                 "bg-foreground/10",
@@ -95,6 +99,9 @@ const Membership = () => {
 
                         <span
                             role="button"
+                            tabIndex={0}
+                            aria-pressed={billingCycle === 'yearly'}
+                            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setBillingCycle('yearly'); } }}
                             onClick={() => setBillingCycle('yearly')}
                             className={cn(
                                 "text-sm font-medium transition-colors cursor-pointer",
@@ -109,7 +116,8 @@ const Membership = () => {
                             </span>
                             <Image
                                 src="/icons/curved-arrow.svg"
-                                alt="arrow"
+                                alt=""
+                                aria-hidden="true"
                                 width={50}
                                 height={20}
                                 className="w-10 h-auto opacity-70"

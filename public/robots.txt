@@ -9,10 +9,14 @@ Sitemap: https://richiereach.tech/sitemap.xml
 Disallow: /_next/static/
 Disallow: /api/
 
-# AI Search Engines — explicitly allowed
-User-agent: GPTBot
+# Search engines — explicitly allowed
+User-agent: Googlebot
 Allow: /
 
+User-agent: Bingbot
+Allow: /
+
+# AI Search/Retrieval bots — allowed
 User-agent: OAI-SearchBot
 Allow: /
 
@@ -46,5 +50,9 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
+# AI Training bots — disallowed
+User-agent: GPTBot
+Disallow: /
+
 User-agent: CCBot
-Allow: /
+Disallow: /

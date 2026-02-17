@@ -126,6 +126,7 @@ const WallOfLove = () => {
                     <div className="flex items-center justify-center gap-3 mt-6">
                         <button
                             onClick={handlePrevious}
+                            aria-label="Previous testimonial"
                             className="size-10 rounded-full bg-foreground/5 hover:bg-foreground/10 border border-foreground/10 hover:border-primary/30 flex items-center justify-center transition-all group cursor-pointer"
                         >
                             <ChevronLeft className="size-5 text-muted-foreground group-hover:text-primary transition-colors" />
@@ -133,6 +134,7 @@ const WallOfLove = () => {
 
                         <button
                             onClick={handleNext}
+                            aria-label="Next testimonial"
                             className="size-10 rounded-full bg-foreground/5 hover:bg-foreground/10 border border-foreground/10 hover:border-primary/30 flex items-center justify-center transition-all group cursor-pointer"
                         >
                             <ChevronRight className="size-5 text-muted-foreground group-hover:text-primary transition-colors" />
