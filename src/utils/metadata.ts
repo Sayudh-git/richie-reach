@@ -2,9 +2,9 @@ import { Metadata } from "next";
 
 const SITE_URL = "https://richiereach.tech";
 const SITE_NAME = "Richie Reach";
-const DEFAULT_TITLE = "LinkedIn Engagement Leads for Outbound | Richie Reach";
+const DEFAULT_TITLE = "Find Active LinkedIn Leads | Richie Reach";
 const DEFAULT_DESCRIPTION =
-    "Find active leads from LinkedIn post engagement. ICP-filtered, enriched, and delivered weekly — no scraping, no stale databases. Start your free pilot.";
+    "Get prospects who engaged with LinkedIn posts about your topic this week. ICP-filtered, enriched, delivered weekly.";
 const OG_IMAGE = `${SITE_URL}/images/og-image.png`;
 
 export const generateMetadata = ({

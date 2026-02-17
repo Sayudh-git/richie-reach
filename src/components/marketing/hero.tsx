@@ -133,7 +133,7 @@ const Hero = () => {
                         className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] backdrop-blur-md"
                     >
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                        <span className="text-xs font-medium text-[#D4D4D4] tracking-wide">Signal Intelligence</span>
+                        <span className="text-xs font-medium text-[#D4D4D4] tracking-wide">Signal-Led Intelligence</span>
                     </motion.div>
 
                     {/* Main Headline */}

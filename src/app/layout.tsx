@@ -39,6 +39,13 @@ export default function RootLayout({
                         __html: JSON.stringify([
                             {
                                 "@context": "https://schema.org",
+                                "@type": "WebPage",
+                                "name": "Find Active LinkedIn Leads | Richie Reach",
+                                "description": "Get prospects who engaged with LinkedIn posts about your topic this week. ICP-filtered, enriched, delivered weekly.",
+                                "url": "https://richiereach.tech"
+                            },
+                            {
+                                "@context": "https://schema.org",
                                 "@type": "Organization",
                                 "name": "Richie Reach",
                                 "url": "https://richiereach.tech",
@@ -48,17 +55,17 @@ export default function RootLayout({
                             },
                             {
                                 "@context": "https://schema.org",
-                                "@type": "WebApplication",
+                                "@type": "SoftwareApplication",
                                 "name": "Richie Reach",
                                 "url": "https://richiereach.tech",
                                 "applicationCategory": "BusinessApplication",
-                                "operatingSystem": "Web",
-                                "description": "Find active leads from LinkedIn post engagement. ICP-filtered, enriched, and delivered weekly to your outbound stack.",
+                                "operatingSystem": "Web-based",
+                                "description": "Finds active LinkedIn leads from recent post engagement, filtered by ICP, delivered weekly.",
                                 "offers": {
-                                    "@type": "Offer",
-                                    "price": "0",
+                                    "@type": "AggregateOffer",
                                     "priceCurrency": "USD",
-                                    "description": "Free pilot available — 7-day trial to validate fit"
+                                    "lowPrice": "0",
+                                    "description": "Contact for pricing. Free 7-day pilot available to validate fit."
                                 },
                                 "featureList": [
                                     "LinkedIn engagement signal monitoring",
@@ -178,6 +185,44 @@ export default function RootLayout({
                         `
                     }}
                 />
+                {/* Google Analytics 4 */}
+                {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+                    <>
+                        <Script
+                            id="ga4-script"
+                            strategy="afterInteractive"
+                            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
+                        />
+                        <Script
+                            id="ga4-init"
+                            strategy="afterInteractive"
+                            dangerouslySetInnerHTML={{
+                                __html: `
+                                    window.dataLayer = window.dataLayer || [];
+                                    function gtag(){dataLayer.push(arguments);}
+                                    gtag('js', new Date());
+                                    gtag('config', '${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}');
+                                `
+                            }}
+                        />
+                    </>
+                )}
+                {/* Microsoft Clarity */}
+                {process.env.NEXT_PUBLIC_CLARITY_ID && (
+                    <Script
+                        id="clarity-init"
+                        strategy="afterInteractive"
+                        dangerouslySetInnerHTML={{
+                            __html: `
+                                (function(c,l,a,r,i,t,y){
+                                    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                                    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                                    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                                })(window,document,"clarity","script","${process.env.NEXT_PUBLIC_CLARITY_ID}");
+                            `
+                        }}
+                    />
+                )}
             </body>
         </html >
     );
