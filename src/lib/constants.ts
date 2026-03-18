@@ -1,0 +1,11 @@
+export const RICHIE_REACH_SIGNAL_FEED_MONTHLY = 1800
+export const BLENDED_ENRICHMENT_COST = 0.13          // $ per record enriched
+export const ICP_PASS_RATE_SIGNAL_LED = 0.22         // 22% pass ICP gate after signal filter
+export const ICP_FAIL_RATE_UNFILTERED = 0.78         // 78% wasted without filter
+export const REPLY_RATE_UNFILTERED = 0.03            // generic cold email
+export const SIGNAL_REPLY_UPLIFT_MULTIPLIER = 2.8   // signal-led vs cold
+export const REPLY_TO_MEETING_RATE = 0.20            // replies that book a meeting
+export const CLOSE_RATE = 0.35
+export const WEEKS_PER_MONTH = 4.3
+export const OPS_TIME_REDUCTION_WITH_RR = 0.85       // 85% ops time saved
+export const RR_MONTHLY_FEE = 1800                   // Richie Reach Signal Feed tier cost/mo

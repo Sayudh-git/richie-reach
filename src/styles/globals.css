@@ -350,3 +350,40 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
+
+/* How It Works — calculator slider v2 */
+input[type='range'].rr-slider-v2 {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  outline: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+input[type='range'].rr-slider-v2::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #10B981;
+  cursor: pointer;
+  border: 2px solid #0A0A0A;
+  transition: background 150ms ease;
+}
+
+input[type='range'].rr-slider-v2::-webkit-slider-thumb:hover {
+  background: #34D399;
+}
+
+input[type='range'].rr-slider-v2::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #10B981;
+  cursor: pointer;
+  border: 2px solid #0A0A0A;
+}

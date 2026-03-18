@@ -3,7 +3,7 @@ import { Routes } from "./routes";
 export const NAV_LINKS = [
     {
         label: "How It Works",
-        href: "#workflow",
+        href: "/how-it-works",
     },
     {
         label: "Who It's For",
