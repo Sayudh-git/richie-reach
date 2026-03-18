@@ -31,12 +31,14 @@ export default function Section3() {
         <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">
           Stage 1 — Signal Monitor
         </p>
-        <h2 className="mb-5 text-2xl text-foreground">The engine runs every 4 hours.</h2>
+        <h2 className="mb-5 text-3xl text-foreground">The engine runs every 4 hours.</h2>
         <p className="mb-8 max-w-xl text-[15px] leading-[1.75] text-muted-foreground">
           A cron-based monitor polls public LinkedIn engagement around client-defined keyword themes.
           Each captured event includes the profile URL, engagement type, post context, and timestamp.
           Deduplication runs on a LinkedIn URN hash. The same person appearing across multiple posts
           in the same week is merged to one record with engagement count incremented.
+          The monitoring engine is built and maintained in-house — no third-party listener, no shared
+          account pool, no platform dependency.
         </p>
         <CodePanel
           code={MONITOR_CONFIG}

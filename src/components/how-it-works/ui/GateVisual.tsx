@@ -1,3 +1,5 @@
+import Avatar from 'boring-avatars'
+
 interface RawRecord {
   name: string
   title: string
@@ -21,23 +23,14 @@ const GATE_CRITERIA = [
   { label: 'Geography', type: 'hard' },
 ]
 
-const AVATAR_PALETTE = [
-  { bg: '#1e3a5f', fill: '#60a5fa' },
-  { bg: '#2e1065', fill: '#c084fc' },
-  { bg: '#451a03', fill: '#fbbf24' },
-  { bg: '#4c0519', fill: '#f87171' },
-  { bg: '#042f2e', fill: '#2dd4bf' },
-]
-
-function Avatar({ index }: { name: string; index: number }) {
-  const c = AVATAR_PALETTE[index % AVATAR_PALETTE.length]
+function PersonAvatar({ name }: { name: string }) {
   return (
-    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" className="shrink-0">
-      <circle cx="18" cy="18" r="18" fill={c.bg} />
-      <circle cx="18" cy="13" r="5.5" fill={c.fill} opacity="0.9" />
-      <path d="M6 34c0-6.627 5.373-12 12-12s12 5.373 12 12" fill={c.fill} opacity="0.55" />
-      <circle cx="18" cy="18" r="17.5" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
-    </svg>
+    <Avatar
+      size={36}
+      name={name}
+      variant="marble"
+      colors={["#1A2A2A", "#2DD4BF", "#0A3A3A", "#8B9BB4", "#111111"]}
+    />
   )
 }
 
@@ -62,7 +55,7 @@ export default function GateVisual({ rawRecords, passedRecords }: GateVisualProp
               }`}
             >
               <div className="flex items-center gap-2">
-                <Avatar name={r.name} index={i} />
+                <PersonAvatar name={r.name} />
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-1.5">
                     <p className="text-xs text-foreground">{r.name}</p>
@@ -115,7 +108,7 @@ export default function GateVisual({ rawRecords, passedRecords }: GateVisualProp
                 ICP ✓
               </span>
               <div className="flex items-center gap-3">
-                <Avatar name={r.name} index={i} />
+                <PersonAvatar name={r.name} />
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-1.5">
                     <span className="text-emerald-600 text-xs">✓</span>

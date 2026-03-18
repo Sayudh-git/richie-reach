@@ -43,10 +43,10 @@ export default function Section5() {
         <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">
           Stage 3 — AI Classification
         </p>
-        <h2 className="mb-5 text-2xl text-foreground">What did they actually say, and what does it mean?</h2>
+        <h2 className="mb-5 text-3xl text-foreground">What did they actually say, and what does it mean?</h2>
         <p className="mb-8 max-w-xl text-[15px] leading-[1.75] text-muted-foreground">
           OpenAI (via Clay) reads the engagement text and classifies behavioral intent. This is not
-          sentiment scoring. It is a behavioral label that determines how Claude Sonnet will write
+          sentiment scoring. It is a behavioral label that determines how claude sonnet 4.6 will write
           the outreach copy in Stage 4.
         </p>
 
@@ -62,15 +62,19 @@ export default function Section5() {
             </thead>
             <tbody>
               {CLASSES.map((c, i) => (
-                <tr key={i} className="border-b border-border transition-colors hover:bg-[#0F0F0F]">
-                  <td className="py-3 pr-6">
+                <tr key={i} className="border-b border-[#1E1E1E] transition-colors hover:bg-[#0F0F0F]">
+                  <td className="py-4 pr-6">
                     <span className={`font-mono text-sm ${c.color}`}>{c.name}</span>
                   </td>
-                  <td className="py-3 pr-6">
-                    <span className="font-mono text-sm text-foreground">{c.weight}</span>
+                  <td className="py-4 pr-6">
+                    <span className={`font-mono text-sm ${
+                      c.name === 'evaluating' || c.name === 'active_buyer'
+                        ? 'text-[#2DD4BF] opacity-70'
+                        : 'text-foreground'
+                    }`}>{c.weight}</span>
                   </td>
-                  <td className="py-3 pr-6 text-sm text-muted-foreground">{c.meaning}</td>
-                  <td className="py-3 text-sm italic text-muted-foreground">{c.trigger}</td>
+                  <td className="py-4 pr-6 text-sm text-muted-foreground">{c.meaning}</td>
+                  <td className="py-4 text-sm italic text-muted-foreground">{c.trigger}</td>
                 </tr>
               ))}
             </tbody>
@@ -78,7 +82,7 @@ export default function Section5() {
         </div>
 
         <p className="mt-6 text-sm text-muted-foreground">
-          The classification also triggers which campaign type and copy framework Claude Sonnet will
+          The classification also triggers which campaign type and copy framework claude sonnet 4.6 will
           use in the next stage.
         </p>
       </div>

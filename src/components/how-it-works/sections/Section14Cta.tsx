@@ -32,9 +32,7 @@ export default function Section14Cta() {
 
           <div className="relative z-10 text-center">
             <h2 className="text-3xl font-semibold text-foreground md:text-4xl">
-              If this fits how you think about outbound
-              <br />
-              <span className="font-serif italic text-emerald-400">let&apos;s talk.</span>
+              If outbound is a serious priority, let&apos;s talk.
             </h2>
 
             <p className="mt-5 text-[15px] text-muted-foreground">

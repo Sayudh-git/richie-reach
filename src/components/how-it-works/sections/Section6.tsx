@@ -84,9 +84,9 @@ export default function Section6() {
     <section id="section-copy-generation" className="border-t border-border py-20 scroll-mt-16">
       <div className="mx-auto max-w-6xl px-6">
         <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">
-          Stage 4 — Copy Generation (Claude Sonnet)
+          Stage 4 — Copy Generation (claude sonnet 4.6)
         </p>
-        <h2 className="mb-5 text-2xl text-foreground">Every email is written to the signal, not the job title.</h2>
+        <h2 className="mb-5 text-3xl text-foreground">Every email is written to the signal, not the job title.</h2>
         <p className="mb-10 max-w-xl text-[15px] leading-[1.75] text-muted-foreground">
           Clay sends the scraped website content, the ICP description, and the engagement context to
           Claude Sonnet via the Anthropic API. The system prompt is around 2,500 tokens and contains
@@ -102,7 +102,7 @@ export default function Section6() {
               </div>
               <div>
                 <p className="font-mono text-sm text-foreground">Orchestrator</p>
-                <p className="font-mono text-[11px] text-muted-foreground">claude-sonnet-4-20250514</p>
+                <p className="font-mono text-[11px] text-muted-foreground">claude-sonnet-4-6</p>
               </div>
             </div>
             <div className="mt-3 flex flex-wrap gap-x-6 gap-y-1 font-mono text-[11px] text-muted-foreground">

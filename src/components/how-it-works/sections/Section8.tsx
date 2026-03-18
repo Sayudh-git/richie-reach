@@ -32,7 +32,7 @@ export default function Section8() {
         <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">
           Stage 6 — Enrichment Waterfall
         </p>
-        <h2 className="mb-5 text-2xl text-foreground">Three tools. One verified email. $0.87 per run.</h2>
+        <h2 className="mb-5 text-3xl text-foreground">Three tools. One verified email. $0.87 per run.</h2>
         <p className="mb-8 max-w-xl text-[15px] leading-[1.75] text-muted-foreground">
           Only records that pass the gate and score at or above 0.52 enter the waterfall. Prospeo
           runs first. If no match, Apollo. If no match, Hunter. If all three miss, the record is

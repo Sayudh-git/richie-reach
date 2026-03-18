@@ -43,7 +43,7 @@ export default function Section4() {
         <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">
           Stage 2 — ICP Gate
         </p>
-        <h2 className="mb-5 text-2xl text-foreground">Enrichment starts here. Not before.</h2>
+        <h2 className="mb-5 text-3xl text-foreground">Enrichment starts here. Not before.</h2>
         <p className="mb-8 max-w-xl text-[15px] leading-[1.75] text-muted-foreground">
           Most teams enrich everything and filter later. That wastes enrichment credits and degrades
           deliverability. The gate runs before enrichment. Records that fail hard gates on title,

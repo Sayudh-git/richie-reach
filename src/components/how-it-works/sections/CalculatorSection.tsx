@@ -181,10 +181,10 @@ export default function CalculatorSection() {
   const [pipelineOpen, setPipelineOpen] = useState(false)
 
   // Mode A state
-  const [monthlyDataSpend, setMonthlyDataSpend] = useState(1000)
-  const [weeklyVolume, setWeeklyVolume] = useState(500)
-  const [currentReplyRate, setCurrentReplyRate] = useState(2.5)
-  const [avgDealValue, setAvgDealValue] = useState(15000)
+  const [monthlyDataSpend, setMonthlyDataSpend] = useState(2000)
+  const [weeklyVolume, setWeeklyVolume] = useState(800)
+  const [currentReplyRate, setCurrentReplyRate] = useState(3)
+  const [avgDealValue, setAvgDealValue] = useState(25000)
 
   // Mode B state
   const [clientCount, setClientCount] = useState(5)
@@ -207,14 +207,14 @@ export default function CalculatorSection() {
           <div className="mb-2 flex items-center gap-2">
             <Icons.icon className="h-4 w-4 text-emerald-500" />
             <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
-              ROI Calculator
+              SIGNAL ROI
             </span>
           </div>
-          <h2 className="mb-2 text-2xl font-semibold text-foreground">
-            See the numbers for your setup.
+          <h2 className="mb-2 text-3xl font-semibold text-foreground">
+            What signal-quality changes in your numbers.
           </h2>
           <p className="mb-8 max-w-xl text-sm text-muted-foreground">
-            Two modes: in-house teams and agencies. Adjust the sliders to match your current setup.
+            Not a pricing comparison. A methodology comparison. Adjust to your current motion.
           </p>
 
           <ModeToggle mode={mode} onChange={setMode} />
@@ -242,7 +242,7 @@ export default function CalculatorSection() {
 
                 <div>
                   {/* 3-column output */}
-                  <div className="grid gap-3 sm:grid-cols-3">
+                  <div className="grid gap-3 sm:grid-cols-[1fr_1.2fr_1fr]">
                     {/* Column 1 — Current */}
                     <div className="rounded border border-border bg-card px-4 py-4">
                       <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
@@ -268,14 +268,19 @@ export default function CalculatorSection() {
                     {/* Column 2 — With RR */}
                     <div className="rounded border border-primary bg-emerald-950 px-4 py-4">
                       <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-emerald-600">
-                        Signal-led (Richie Reach)
+                        Signal-led (warm inputs)
                       </p>
                       <div className="space-y-2">
-                        <MRow label="RR monthly cost" value="$1,800" dim />
                         <div>
                           <MRow label="Records/mo" value={fmtCount(resultA.withRR.recordsContactedPerMonth)} />
                           <p className="mt-0.5 text-[9px] text-muted-foreground leading-snug">
                             Only ICP-matched signals enter your sequence
+                          </p>
+                        </div>
+                        <div>
+                          <MRow label="Enrichment cost" value={fmtUSD(resultA.withRR.enrichmentCost)} />
+                          <p className="mt-0.5 text-[9px] text-muted-foreground leading-snug">
+                            Enrichment runs after ICP gate — only on qualified records
                           </p>
                         </div>
                         <div>
@@ -308,7 +313,8 @@ export default function CalculatorSection() {
                       </p>
                       <div className="space-y-2">
                         <MRow label="CPM (current)" value={fmtUSD(resultA.current.costPerMeeting)} />
-                        <MRow label="CPM (Richie Reach)" value={fmtUSD(resultA.withRR.costPerMeeting)} />
+                        <MRow label="CPM (signal-led)" value={fmtUSD(resultA.withRR.costPerMeeting)} />
+                        <MRow label="Enrichment waste cut" value={fmtUSD(resultA.delta.enrichmentWasteEliminated)} />
                       </div>
                       <div className="mt-4 border-t border-border pt-3">
                         <p className="text-[10px] text-muted-foreground">Savings per meeting</p>
@@ -320,21 +326,36 @@ export default function CalculatorSection() {
                           {fmtUSD(Math.abs(resultA.delta.savingsPerMeeting))}
                         </p>
                       </div>
+                      <p className="mt-3 text-[11px] text-muted-foreground leading-snug">
+                        {resultA.delta.rrCheaper
+                          ? 'Signal-led outreach produces a better cost per meeting on the same ICP, before any Richie Reach fee is considered.'
+                          : 'At this volume and reply rate, the cost per meeting difference is small. The signal advantage is meeting quality and pipeline fit, not raw unit economics.'}
+                      </p>
                     </div>
                   </div>
 
-                  {/* Context sentence */}
-                  <p className="mt-4 text-[12px] text-muted-foreground leading-snug">
-                    {resultA.delta.rrCheaper
-                      ? `At ${resultA.withRR.meetingsPerMonth} meetings/month, you reach ${fmtUSD(resultA.withRR.costPerMeeting)} cost per meeting vs ${fmtUSD(resultA.current.costPerMeeting)} on your current approach.`
-                      : 'At this data spend and volume, cost per meeting is similar. The difference is signal quality — context-referenced openers vs. cold lists.'}
-                  </p>
+                  {/* Pricing note panel */}
+                  <div className="mt-6 rounded border border-[#1E1E1E] bg-[#111111] px-5 py-5">
+                    <p className="mb-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                      How Richie Reach is priced
+                    </p>
+                    <p className="text-[13px] text-[#8B9BB4] leading-relaxed">
+                      There is no published plan. Pricing is scoped to your ICP complexity, signal volume,
+                      delivery cadence, and service tier. Most clients find the total cost — engine,
+                      enrichment, and ops — comes in below what they currently spend on data subscriptions
+                      and agency retainers combined.
+                    </p>
+                    <p className="mt-3 text-[13px] text-foreground">
+                      If the signal-led numbers above look interesting for your motion, that is the right
+                      time to talk.
+                    </p>
+                  </div>
 
                   {/* Pipeline accordion */}
                   <div className="mt-4">
                     <button
                       onClick={() => setPipelineOpen((p) => !p)}
-                      className="font-mono text-[11px] text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5"
+                      className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-[#1E1E1E] bg-[#111111] px-3 py-1.5 font-mono text-[11px] text-[#8B9BB4] hover:border-[#2DD4BF]/30 hover:text-[#2DD4BF] transition-colors"
                     >
                       <span>{pipelineOpen ? '▾' : '▸'}</span>
                       {pipelineOpen ? 'Hide' : 'See'} pipeline projection
@@ -391,42 +412,59 @@ export default function CalculatorSection() {
                   setHourlyRate={setHourlyRate}
                 />
 
-                <div className="grid gap-3 sm:grid-cols-3">
-                  {/* Column 1 — Current */}
-                  <div className="rounded border border-border bg-card px-4 py-4">
-                    <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                      Current ops
-                    </p>
-                    <div className="space-y-2">
-                      <MRow label="Monthly ops cost" value={fmtUSD(resultB.current.monthlyOpsCost)} />
-                      <MRow label="Total data spend" value={fmtUSD(resultB.current.totalDataSpend)} />
-                      <MRow label="Total hours/mo" value={resultB.current.totalHoursPerMonth + ' hrs'} />
+                <div>
+                  <div className="grid gap-3 sm:grid-cols-3">
+                    {/* Column 1 — Current */}
+                    <div className="rounded border border-border bg-card px-4 py-4">
+                      <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                        Current ops
+                      </p>
+                      <div className="space-y-2">
+                        <MRow label="Monthly ops cost" value={fmtUSD(resultB.current.monthlyOpsCost)} />
+                        <MRow label="Total data spend" value={fmtUSD(resultB.current.totalDataSpend)} />
+                        <MRow label="Total hours/mo" value={resultB.current.totalHoursPerMonth + ' hrs'} />
+                      </div>
+                    </div>
+
+                    {/* Column 2 — With RR */}
+                    <div className="rounded border border-primary bg-emerald-950 px-4 py-4">
+                      <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-emerald-600">
+                        With signal-led infrastructure (per client)
+                      </p>
+                      <div className="space-y-2">
+                        <MRow label="Ops time freed" value="85%" />
+                        <MRow label="Hrs freed/client/mo" value={resultB.withRR.hoursFreedPerClient.toFixed(1) + ' hrs'} />
+                        <MRow label="Freed hrs value" value={fmtUSD(resultB.withRR.hoursFreedValue)} />
+                      </div>
+                      <p className="mt-3 text-[11px] text-muted-foreground leading-snug">
+                        Richie Reach handles signal capture, filtering, classification, and enrichment
+                      </p>
+                    </div>
+
+                    {/* Column 3 — Hours freed */}
+                    <div className="rounded border border-border bg-card px-4 py-4">
+                      <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                        Hours freed
+                      </p>
+                      <div className="space-y-2">
+                        <MRow label="Freed/client/mo" value={resultB.withRR.hoursFreedPerClient.toFixed(1) + ' hrs'} />
+                        <MRow label="Across all clients" value={resultB.withRR.totalFreedHours.toFixed(1) + ' hrs'} />
+                      </div>
+                      <p className="mt-4 text-[11px] text-muted-foreground leading-snug">
+                        Freed hours can be redeployed to client-facing work or used to take on additional clients.
+                      </p>
                     </div>
                   </div>
 
-                  {/* Column 2 — With RR */}
-                  <div className="rounded border border-primary bg-emerald-950 px-4 py-4">
-                    <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-emerald-600">
-                      With Richie Reach
+                  {/* Pricing note panel */}
+                  <div className="mt-6 rounded border border-[#1E1E1E] bg-[#111111] px-5 py-5">
+                    <p className="mb-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                      How Richie Reach is priced
                     </p>
-                    <div className="space-y-2">
-                      <MRow label="Ops cost (with RR)" value={fmtUSD(resultB.withRR.opsCostWithRR)} />
-                      <MRow label="Total RR cost" value={fmtUSD(resultB.withRR.totalRRCost)} />
-                      <MRow label="Hrs/client (with RR)" value={resultB.withRR.hoursPerClientWithRR.toFixed(1) + ' hrs'} />
-                    </div>
-                  </div>
-
-                  {/* Column 3 — Hours freed */}
-                  <div className="rounded border border-border bg-card px-4 py-4">
-                    <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                      Hours freed
-                    </p>
-                    <div className="space-y-2">
-                      <MRow label="Freed/client/mo" value={resultB.withRR.hoursFreedPerClient.toFixed(1) + ' hrs'} />
-                      <MRow label="Across all clients" value={resultB.withRR.totalFreedHours.toFixed(1) + ' hrs'} />
-                    </div>
-                    <p className="mt-4 text-[11px] text-muted-foreground leading-snug">
-                      Freed hours can be redeployed to client-facing work or used to take on additional clients.
+                    <p className="text-[13px] text-[#8B9BB4] leading-relaxed">
+                      White-label pricing for agencies is based on number of clients, ICP complexity, and
+                      delivery model. There is no per-seat fee. Pricing is discussed once we understand your
+                      client mix and current ops cost.
                     </p>
                   </div>
                 </div>
@@ -441,7 +479,7 @@ export default function CalculatorSection() {
               <li>Current setup meetings: total contacts × reply rate × 18% meeting conversion.</li>
               <li>Signal-led meetings: ICP-filtered contacts (22% of total) × signal reply rate × 22% meeting conversion.</li>
               <li>Signal reply rate: your current rate × 2.8 (Hunter.io benchmark, capped at 12%).</li>
-              <li>Richie Reach monthly cost used in calculation: $1,800 (Signal Feed tier).</li>
+              <li>Signal-led enrichment cost: $0.01/record (Prospeo-primary, filter-first waterfall). Current motion waste: 78% × $0.13 blended cost.</li>
               <li>Enrichment waste estimate: 78% of unfiltered records × $0.13 blended cost per record.</li>
             </ul>
             <p className="mt-3 text-[11px] text-muted-foreground opacity-70">

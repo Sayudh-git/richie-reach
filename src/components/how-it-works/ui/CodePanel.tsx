@@ -19,7 +19,7 @@ const customStyle = {
 }
 
 const codeStyle: Record<string, React.CSSProperties> = {
-  hljs: { background: 'transparent', color: '#A8A29E', padding: '16px 32px', display: 'block', overflowX: 'auto' },
+  hljs: { background: 'transparent', color: '#A8A29E', padding: '16px 20px 16px 24px', lineHeight: '1.65', display: 'block', overflowX: 'auto' },
   'hljs-attr': { color: '#7DD3FC' },
   'hljs-string': { color: '#86EFAC' },
   'hljs-number': { color: '#FCA5A5' },
@@ -41,7 +41,7 @@ export default function CodePanel({ code, language = 'json', label }: CodePanelP
         <div className="flex items-center gap-2 border-b border-border px-4 py-2.5">
           <span className="h-2.5 w-2.5 rounded-full bg-[#991B1B]" />
           <span className="h-2.5 w-2.5 rounded-full bg-[#92400E]" />
-          <span className="h-2.5 w-2.5 rounded-full bg-[#16A34A]" />
+          <span className="h-2.5 w-2.5 rounded-full bg-[#2DD4BF]" />
           <span className="ml-2 font-mono text-xs text-muted-foreground">{label}</span>
         </div>
       )}

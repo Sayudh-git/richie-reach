@@ -2,11 +2,10 @@ import {
   BLENDED_ENRICHMENT_COST,
   ICP_PASS_RATE_SIGNAL_LED,
   ICP_FAIL_RATE_UNFILTERED,
+  SIGNAL_ENRICHMENT_COST_PER_RECORD,
   SIGNAL_REPLY_UPLIFT_MULTIPLIER,
   WEEKS_PER_MONTH,
   OPS_TIME_REDUCTION_WITH_RR,
-  RR_MONTHLY_FEE,
-  RICHIE_REACH_SIGNAL_FEED_MONTHLY,
 } from '@/lib/constants'
 
 export interface ModeAInputs {
@@ -31,10 +30,12 @@ export interface ModeAResult {
     repliesPerMonth: number
     meetingsPerMonth: number
     costPerMeeting: number
+    enrichmentCost: number
   }
   delta: {
     savingsPerMeeting: number
     rrCheaper: boolean
+    enrichmentWasteEliminated: number
   }
   pipeline: {
     opportunities: number
@@ -58,10 +59,10 @@ export interface ModeBResult {
   }
   withRR: {
     opsCostWithRR: number
-    totalRRCost: number
     hoursPerClientWithRR: number
     hoursFreedPerClient: number
     totalFreedHours: number
+    hoursFreedValue: number
   }
 }
 
@@ -81,7 +82,11 @@ export function calcModeA(inputs: ModeAInputs): ModeAResult {
   const signalReplyRate = Math.min(currentReplyRate * SIGNAL_REPLY_UPLIFT_MULTIPLIER, 12)
   const rrReplies = rrContacts * (signalReplyRate / 100)
   const rrMeetings = rrReplies * 0.22
-  const cpmRR = rrMeetings > 0 ? RR_MONTHLY_FEE / rrMeetings : 0
+  const rrEnrichmentCost = rrContacts * SIGNAL_ENRICHMENT_COST_PER_RECORD
+  const cpmRR = rrMeetings > 0 ? rrEnrichmentCost / rrMeetings : 0
+
+  // Enrichment waste eliminated by filtering first
+  const enrichmentWasteEliminated = monthlyVolume * ICP_FAIL_RATE_UNFILTERED * BLENDED_ENRICHMENT_COST
 
   // Pipeline (directional)
   const opportunities = rrMeetings * 0.25
@@ -103,10 +108,12 @@ export function calcModeA(inputs: ModeAInputs): ModeAResult {
       repliesPerMonth: Math.round(rrReplies),
       meetingsPerMonth: Math.round(rrMeetings),
       costPerMeeting: Math.round(cpmRR),
+      enrichmentCost: Math.round(rrEnrichmentCost),
     },
     delta: {
       savingsPerMeeting: Math.round(cpmCurrent - cpmRR),
       rrCheaper: cpmRR < cpmCurrent,
+      enrichmentWasteEliminated: Math.round(enrichmentWasteEliminated),
     },
     pipeline: {
       opportunities: Math.round(opportunities * 10) / 10,
@@ -125,13 +132,11 @@ export function calcModeB(inputs: ModeBInputs): ModeBResult {
   const totalHoursPerMonth = clientCount * hoursPerClient
 
   // With Richie Reach
-  const rrEnrichCostPerClient =
-    RICHIE_REACH_SIGNAL_FEED_MONTHLY * ICP_PASS_RATE_SIGNAL_LED * BLENDED_ENRICHMENT_COST
   const hoursPerClientWithRR = hoursPerClient * (1 - OPS_TIME_REDUCTION_WITH_RR)
   const opsCostWithRR = clientCount * hoursPerClientWithRR * hourlyRate
-  const totalRRCost = clientCount * rrEnrichCostPerClient + RR_MONTHLY_FEE
   const hoursFreedPerClient = hoursPerClient * OPS_TIME_REDUCTION_WITH_RR
   const totalFreedHours = hoursFreedPerClient * clientCount
+  const hoursFreedValue = hoursFreedPerClient * clientCount * hourlyRate
 
   return {
     current: {
@@ -141,10 +146,10 @@ export function calcModeB(inputs: ModeBInputs): ModeBResult {
     },
     withRR: {
       opsCostWithRR: Math.round(opsCostWithRR),
-      totalRRCost: Math.round(totalRRCost),
       hoursPerClientWithRR: Math.round(hoursPerClientWithRR * 10) / 10,
       hoursFreedPerClient: Math.round(hoursFreedPerClient * 10) / 10,
       totalFreedHours: Math.round(totalFreedHours * 10) / 10,
+      hoursFreedValue: Math.round(hoursFreedValue),
     },
   }
 }

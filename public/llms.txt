@@ -33,5 +33,5 @@ Volume-based pricing depending on ICP complexity and service level. Starts with 
 Book a 20-minute call to discuss your ICP, keywords, and signal themes. If it's a fit, we run a 7-day pilot to deliver a sample feed.
 
 - Website: https://richiereach.tech
-- Contact: hello@richiereach.tech
+- Contact: hello@richiereach.com
 - Full details: https://richiereach.tech/llms-full.txt

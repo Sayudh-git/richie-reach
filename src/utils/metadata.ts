@@ -11,6 +11,7 @@ export const generateMetadata = ({
     title = DEFAULT_TITLE,
     description = DEFAULT_DESCRIPTION,
     image = OG_IMAGE,
+    canonical = "/",
     icons = [
         {
             rel: "apple-touch-icon",
@@ -28,6 +29,7 @@ export const generateMetadata = ({
     title?: string;
     description?: string;
     image?: string | null;
+    canonical?: string;
     icons?: Metadata["icons"];
     noIndex?: boolean;
 } = {}): Metadata => ({
@@ -36,7 +38,7 @@ export const generateMetadata = ({
     icons,
     metadataBase: new URL(SITE_URL),
     alternates: {
-        canonical: "/",
+        canonical: canonical.startsWith("http") ? canonical : `${SITE_URL}${canonical}`,
     },
     openGraph: {
         type: "website",

@@ -61,10 +61,10 @@ export default function PipelineOverview() {
       <div className="hidden md:block">
         <div ref={containerRef} className="relative">
           {/* Dark base track */}
-          <div className="absolute top-[22px] left-0 right-0 h-[2px] bg-[rgba(255,255,255,0.08)]" />
+          <div className="absolute top-[22px] left-0 right-0 h-[2px] bg-[#2A2A2A]" />
           {/* Emerald fill */}
           <motion.div
-            className="absolute top-[22px] left-0 right-0 h-[2px] bg-primary"
+            className="absolute top-[22px] left-0 right-0 h-[2px] bg-[rgba(45,212,191,0.3)]"
             style={{ transformOrigin: 'left' }}
             initial={{ scaleX: 0 }}
             animate={{ scaleX: hasPlayed ? 1 : 0 }}
@@ -103,14 +103,13 @@ export default function PipelineOverview() {
                         transition={{ delay: nodeDelay, duration: 0.4 }}
                       />
                     )}
-                    <span className="relative z-10 font-mono text-[10px] font-bold text-center leading-none text-muted-foreground">
+                    <span className="relative z-10 font-mono text-[13px] font-semibold text-center leading-none text-muted-foreground">
                       {String(i + 1).padStart(2, '0')}
                     </span>
                   </div>
                   <span
-                    className={`text-center font-mono text-[12px] font-medium leading-snug max-w-[80px] ${
-                      stage.inHouse ? 'text-primary' : 'text-muted-foreground'
-                    }`}
+                    className={`text-center font-mono text-[12px] font-medium leading-snug max-w-[80px]`}
+                    style={{ color: stage.inHouse ? '#F0EDE8' : '#B0BAC9' }}
                   >
                     {stage.label}
                   </span>
@@ -123,11 +122,11 @@ export default function PipelineOverview() {
         <div className="mt-5 flex items-center gap-5">
           <div className="flex items-center gap-2">
             <div className="h-2.5 w-2.5 rounded-full border-2 border-primary" />
-            <span className="font-mono text-[11px] text-muted-foreground">In-house built</span>
+            <span className="font-mono text-[12px] text-muted-foreground">In-house built</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="h-2.5 w-2.5 rounded-full border-2 border-border" />
-            <span className="font-mono text-[11px] text-muted-foreground">Third-party tool</span>
+            <span className="font-mono text-[12px] text-muted-foreground">Third-party tool</span>
           </div>
         </div>
       </div>

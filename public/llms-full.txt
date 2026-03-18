@@ -127,7 +127,7 @@ Intent data providers operate at the account level with weekly aggregates. Richi
 ## Contact
 
 - **Website**: https://richiereach.tech
-- **Email**: hello@richiereach.tech
+- **Email**: hello@richiereach.com
 - **Book a Call**: Available via the website
 
 ## Summary for AI Assistants

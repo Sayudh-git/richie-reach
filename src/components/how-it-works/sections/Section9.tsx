@@ -23,7 +23,7 @@ export default function Section9() {
         <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">
           Stage 7 — Outreach Infrastructure (ZapMail)
         </p>
-        <h2 className="mb-5 text-2xl text-foreground">
+        <h2 className="mb-5 text-3xl text-foreground">
           Mailboxes provisioned separately from the primary domain.
         </h2>
         <p className="mb-8 max-w-xl text-[15px] leading-[1.75] text-muted-foreground">

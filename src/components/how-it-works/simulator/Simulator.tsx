@@ -188,7 +188,10 @@ export default function Simulator() {
       {/* Records */}
       {state.phase === 0 ? (
         <div className="rounded border border-border bg-card px-6 py-10 text-center">
-          <p className="font-mono text-xs text-muted-foreground">Select a theme and click &quot;Run pipeline&quot;</p>
+          <p className="font-mono text-xs text-muted-foreground">Select a keyword theme above. The pipeline will process 10 signals through all 9 stages.</p>
+          <p className="mt-3 font-mono text-[11px] text-muted-foreground tracking-wider">
+            SIGNAL &nbsp;→&nbsp; ICP GATE &nbsp;→&nbsp; CLASSIFY &nbsp;→&nbsp; SCORE &nbsp;→&nbsp; ENRICH &nbsp;→&nbsp; DELIVER
+          </p>
         </div>
       ) : (
         <div className="space-y-2">

@@ -56,7 +56,7 @@ export default function Section7() {
         <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">
           Stage 5 — Composite Score
         </p>
-        <h2 className="mb-5 text-2xl text-foreground">
+        <h2 className="mb-5 text-3xl text-foreground">
           Records are scored before delivery. Not all signals are equal.
         </h2>
         <p className="mb-10 max-w-xl text-[15px] leading-[1.75] text-muted-foreground">
@@ -71,8 +71,9 @@ export default function Section7() {
 
         <div className="mt-10 grid gap-4 sm:grid-cols-3">
           {TIERS.map((tier) => (
+            <div key={tier.label}>
+              <div className="mx-auto w-px h-4 border-l border-dashed border-[#1E1E1E]" />
             <div
-              key={tier.label}
               className={`rounded border ${tier.borderColor} ${tier.bgColor} px-5 py-5`}
             >
               <div className="flex items-baseline gap-2">
@@ -80,6 +81,7 @@ export default function Section7() {
                 <span className="font-mono text-xs text-muted-foreground">{tier.range}</span>
               </div>
               <p className="mt-3 text-sm text-muted-foreground">{tier.desc}</p>
+            </div>
             </div>
           ))}
         </div>

@@ -59,7 +59,7 @@ export default function Section13() {
         <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">
           How we work together
         </p>
-        <h2 className="mb-10 text-2xl text-foreground">Three tiers. Clear ownership at every layer.</h2>
+        <h2 className="mb-10 text-3xl text-foreground">Three tiers. Clear ownership at every layer.</h2>
 
         {/* Ownership matrix table */}
         <div className="overflow-x-auto">
@@ -80,13 +80,13 @@ export default function Section13() {
             </thead>
             <tbody>
               {MATRIX_ROWS.map((row, i) => (
-                <tr key={row.label} className={i % 2 === 0 ? 'bg-background' : 'bg-[#0F0F0F]'}>
-                  <td className="py-3 pr-4 font-mono text-xs text-muted-foreground align-top min-w-[140px]">
+                <tr key={row.label} className={i % 2 === 0 ? 'bg-[#0A0A0A]' : 'bg-[#0D0D0D]'}>
+                  <td className="py-4 pr-4 font-mono text-[13px] text-[#8B9BB4] align-top min-w-[140px]">
                     {row.label}
                   </td>
-                  <td className="py-3 px-4 text-sm text-foreground align-top">{row.signalFeed}</td>
-                  <td className="py-3 px-4 text-sm text-foreground align-top">{row.signalRouting}</td>
-                  <td className="py-3 px-4 text-sm text-foreground align-top">{row.managed}</td>
+                  <td className="py-4 px-4 text-sm text-foreground align-top">{row.signalFeed}</td>
+                  <td className="py-4 px-4 text-sm text-foreground align-top">{row.signalRouting}</td>
+                  <td className="py-4 px-4 text-sm text-foreground align-top">{row.managed}</td>
                 </tr>
               ))}
             </tbody>

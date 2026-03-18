@@ -22,6 +22,9 @@ export default function RootLayout({
             <head>
                 <link rel="llms" href="/llms.txt" />
                 <link rel="llms-full" href="/llms-full.txt" />
+                <link rel="preconnect" href="https://app.cal.com" />
+                <link rel="preconnect" href="https://www.googletagmanager.com" />
+                <link rel="dns-prefetch" href="https://www.google.com" />
             </head>
             <body
                 className={cn(
@@ -40,18 +43,30 @@ export default function RootLayout({
                             {
                                 "@context": "https://schema.org",
                                 "@type": "WebPage",
+                                "@id": "https://richiereach.tech/#webpage",
                                 "name": "Find Active LinkedIn Leads | Richie Reach",
                                 "description": "Get prospects who engaged with LinkedIn posts about your topic this week. ICP-filtered, enriched, delivered weekly.",
-                                "url": "https://richiereach.tech"
+                                "url": "https://richiereach.tech",
+                                "dateModified": "2026-03-18"
                             },
                             {
                                 "@context": "https://schema.org",
                                 "@type": "Organization",
+                                "@id": "https://richiereach.tech/#organization",
                                 "name": "Richie Reach",
                                 "url": "https://richiereach.tech",
                                 "logo": "https://richiereach.tech/icons/icon.svg",
                                 "description": "LinkedIn engagement leads for outbound teams. ICP-filtered, enriched, and delivered weekly.",
-                                "email": "hello@richiereach.com"
+                                "email": "hello@richiereach.com",
+                                "foundingDate": "2024",
+                                "sameAs": [
+                                    "https://www.linkedin.com/company/richie-reach"
+                                ],
+                                "contactPoint": {
+                                    "@type": "ContactPoint",
+                                    "contactType": "sales",
+                                    "email": "hello@richiereach.com"
+                                }
                             },
                             {
                                 "@context": "https://schema.org",

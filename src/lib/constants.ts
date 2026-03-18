@@ -1,4 +1,5 @@
 export const RICHIE_REACH_SIGNAL_FEED_MONTHLY = 1800
+export const SIGNAL_ENRICHMENT_COST_PER_RECORD = 0.01   // $ per record, filter-first waterfall
 export const BLENDED_ENRICHMENT_COST = 0.13          // $ per record enriched
 export const ICP_PASS_RATE_SIGNAL_LED = 0.22         // 22% pass ICP gate after signal filter
 export const ICP_FAIL_RATE_UNFILTERED = 0.78         // 78% wasted without filter

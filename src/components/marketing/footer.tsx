@@ -26,7 +26,7 @@ const Footer = () => {
                         </h4>
                         <ul className="space-y-2">
                             {[
-                                { label: "How It Works", href: "#workflow" },
+                                { label: "How It Works", href: "/how-it-works" },
                                 { label: "Who It's For", href: "#who-its-for" },
                                 { label: "FAQ", href: "#faq" }
                             ].map((link) => (
@@ -53,10 +53,17 @@ const Footer = () => {
                     </div>
                 </div>
 
+                {/* Founder line */}
+                <div className="mt-8 text-center">
+                  <p className="text-xs text-[#4A5568]">
+                    Built and operated by Sayudh Mukherjee — technical founder, not an agency.
+                  </p>
+                </div>
+
                 {/* Bottom - Copyright */}
                 <div className="mt-12 pt-6 border-t border-[rgba(255,255,255,0.04)]">
                     <p className="text-xs text-[#808080] text-center">
-                        © 2026 Richie Reach. All rights reserved.
+                        © {new Date().getFullYear()} Richie Reach. All rights reserved.
                     </p>
                 </div>
             </Wrapper>

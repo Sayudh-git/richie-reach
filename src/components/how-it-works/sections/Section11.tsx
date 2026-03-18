@@ -35,12 +35,14 @@ export default function Section11() {
         <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">
           Stage 9 — HubSpot CRM
         </p>
-        <h2 className="mb-5 text-2xl text-foreground">Every record is traceable back to its signal.</h2>
+        <h2 className="mb-5 text-3xl text-foreground">Every record is traceable back to its signal.</h2>
         <p className="mb-8 max-w-xl text-[15px] leading-[1.75] text-muted-foreground">
           All active records sync to HubSpot with the full signal metadata attached. Attribution
           from a closed deal back to the signal theme, engagement class, and composite score at time
           of capture is available in the CRM. This is the feedback loop that improves the scoring
           model over time.
+          Every closed-won deal traces back to the signal theme and engagement class that triggered it —
+          which is how the scoring model gets better over time, not just for reporting.
         </p>
 
         <CodePanel code={HUBSPOT_RECORD} language="json" label="HubSpot contact record — example" />
