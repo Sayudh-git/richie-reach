@@ -1,3 +1,7 @@
+'use client'
+
+import { useRef } from 'react'
+import { motion, useInView } from 'motion/react'
 import { Mail, Linkedin } from 'lucide-react'
 
 interface GridCell {
@@ -81,18 +85,33 @@ function ConditionBadge({ condition }: { condition: string }) {
 }
 
 export default function MultichannelGrid() {
+  const ref = useRef<HTMLDivElement>(null)
+  const inView = useInView(ref, { once: true, amount: 0.2 })
+
   return (
-    <div>
+    <div ref={ref}>
       {/* Grid container — horizontal scroll on mobile */}
       <div className="overflow-x-auto">
-        <div className="min-w-[700px]">
+        <div className="relative min-w-[700px]">
+          {/* Flowing scan highlight — sweeps left-to-right over the grid */}
+          <motion.div
+            className="pointer-events-none absolute inset-y-0 w-[180px] bg-gradient-to-r from-transparent via-[#2DD4BF]/[0.04] to-transparent"
+            animate={{ x: ['-180px', '800px'] }}
+            transition={{ duration: 7, repeat: Infinity, ease: 'linear', repeatDelay: 3 }}
+          />
           {/* Header row — days */}
           <div className="grid grid-cols-[80px_repeat(7,1fr)] gap-1">
             <div />
-            {DAYS.map((day) => (
-              <div key={day} className="px-2 py-2 text-center font-mono text-[11px] font-medium tracking-wider text-muted-foreground">
+            {DAYS.map((day, colIndex) => (
+              <motion.div
+                key={day}
+                initial={{ opacity: 0, y: -4 }}
+                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: -4 }}
+                transition={{ duration: 0.3, delay: colIndex * 0.05 }}
+                className="px-2 py-2 text-center font-mono text-[11px] font-medium tracking-wider text-muted-foreground"
+              >
                 {day}
-              </div>
+              </motion.div>
             ))}
           </div>
 
@@ -104,17 +123,31 @@ export default function MultichannelGrid() {
                 Email
               </span>
             </div>
-            {DAYS.map((day) => {
+            {DAYS.map((day, colIndex) => {
               const cell = EMAIL_CELLS[day]
               if (!cell) {
-                return <div key={day} className="rounded border border-dashed border-border min-h-[72px]" />
+                return (
+                  <motion.div
+                    key={day}
+                    initial={{ opacity: 0 }}
+                    animate={inView ? { opacity: 1 } : { opacity: 0 }}
+                    transition={{ duration: 0.3, delay: colIndex * 0.07 }}
+                    className="rounded border border-dashed border-border min-h-[72px]"
+                  />
+                )
               }
               return (
-                <div key={day} className="rounded border border-border bg-card px-2.5 py-2 min-h-[80px]">
+                <motion.div
+                  key={day}
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 6 }}
+                  transition={{ duration: 0.35, delay: colIndex * 0.07 }}
+                  className="rounded border border-border bg-card px-2.5 py-2 min-h-[80px] cursor-default hover:border-[rgba(255,255,255,0.15)] transition-colors"
+                >
                   <p className="text-[12px] font-medium text-foreground">{cell.label}</p>
                   <p className="mt-0.5 text-[12px] text-muted-foreground leading-snug">{cell.detail}</p>
                   {cell.condition && <ConditionBadge condition={cell.condition} />}
-                </div>
+                </motion.div>
               )
             })}
           </div>
@@ -127,11 +160,17 @@ export default function MultichannelGrid() {
                 LinkedIn
               </span>
             </div>
-            {DAYS.map((day) => {
+            {DAYS.map((day, colIndex) => {
               // Day 7 gets the fork
               if (day === 'Day 7') {
                 return (
-                  <div key={day} className="rounded border border-border bg-card px-2.5 py-2 min-h-[72px] relative">
+                  <motion.div
+                    key={day}
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 6 }}
+                    transition={{ duration: 0.35, delay: colIndex * 0.07 }}
+                    className="rounded border border-border bg-card px-2.5 py-2 min-h-[72px] relative cursor-default hover:border-[rgba(255,255,255,0.15)] transition-colors"
+                  >
                     {/* Diamond indicator */}
                     <div className="absolute -top-2 left-1/2 -translate-x-1/2">
                       <svg width="14" height="14" viewBox="0 0 14 14" className="text-muted-foreground">
@@ -150,20 +189,34 @@ export default function MultichannelGrid() {
                         </div>
                       ))}
                     </div>
-                  </div>
+                  </motion.div>
                 )
               }
 
               const cell = LINKEDIN_CELLS[day]
               if (!cell) {
-                return <div key={day} className="rounded border border-dashed border-border min-h-[72px]" />
+                return (
+                  <motion.div
+                    key={day}
+                    initial={{ opacity: 0 }}
+                    animate={inView ? { opacity: 1 } : { opacity: 0 }}
+                    transition={{ duration: 0.3, delay: colIndex * 0.07 }}
+                    className="rounded border border-dashed border-border min-h-[72px]"
+                  />
+                )
               }
               return (
-                <div key={day} className="rounded border border-border bg-card px-2.5 py-2 min-h-[80px]">
+                <motion.div
+                  key={day}
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 6 }}
+                  transition={{ duration: 0.35, delay: colIndex * 0.07 }}
+                  className="rounded border border-border bg-card px-2.5 py-2 min-h-[80px] cursor-default hover:border-[rgba(255,255,255,0.15)] transition-colors"
+                >
                   <p className="text-[12px] font-medium text-foreground">{cell.label}</p>
                   <p className="mt-0.5 text-[12px] text-muted-foreground leading-snug">{cell.detail}</p>
                   {cell.condition && <ConditionBadge condition={cell.condition} />}
-                </div>
+                </motion.div>
               )
             })}
           </div>
@@ -171,7 +224,11 @@ export default function MultichannelGrid() {
       </div>
 
       {/* Reply row — full width */}
-      <div className="mt-3 rounded border border-primary bg-emerald-950 px-4 py-3">
+      <motion.div
+        className="mt-3 rounded border border-primary bg-emerald-950 px-4 py-3"
+        animate={{ opacity: [0.85, 1, 0.85] }}
+        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+      >
         <div className="flex items-center gap-2">
           <div className="h-2 w-2 rounded-full bg-primary" />
           <p className="font-mono text-xs text-primary">Reply received at any step</p>
@@ -179,7 +236,7 @@ export default function MultichannelGrid() {
         <p className="mt-1 ml-4 text-xs text-muted-foreground">
           Sequence paused immediately. Record synced to HubSpot with reply channel and date.
         </p>
-      </div>
+      </motion.div>
     </div>
   )
 }

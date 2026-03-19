@@ -50,8 +50,8 @@ function Slider({ label, value, min, max, step, format, helper, onChange }: Slid
 function MRow({ label, value, dim }: { label: string; value: string; dim?: boolean }) {
   return (
     <div className="flex items-baseline justify-between gap-2">
-      <span className="text-[11px] text-muted-foreground shrink-0">{label}</span>
-      <span className={`font-mono text-xs tabular-nums ${dim ? 'text-muted-foreground' : 'text-foreground'}`}>
+      <span className="text-[11px] text-muted-foreground min-w-0">{label}</span>
+      <span className={`font-mono text-xs tabular-nums shrink-0 ${dim ? 'text-muted-foreground' : 'text-foreground'}`}>
         {value}
       </span>
     </div>
@@ -241,17 +241,45 @@ export default function CalculatorSection() {
                 />
 
                 <div>
-                  {/* 3-column output */}
-                  <div className="grid gap-3 sm:grid-cols-[1fr_1.2fr_1fr]">
-                    {/* Column 1 — Current */}
+                  {/* KPI strip — 3 headline numbers */}
+                  <div className="mb-4 grid grid-cols-3 gap-2">
+                    <div className="rounded border border-border bg-card px-3 py-3">
+                      <p className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground leading-tight">
+                        Cost per meeting (current)
+                      </p>
+                      <p className="mt-1.5 font-mono text-2xl font-bold" style={{ color: '#D97706' }}>
+                        {fmtUSD(resultA.current.costPerMeeting)}
+                      </p>
+                    </div>
+                    <div className="rounded border border-primary bg-emerald-950 px-3 py-3">
+                      <p className="font-mono text-[9px] uppercase tracking-widest text-emerald-600 leading-tight">
+                        Cost per meeting (signal-led)
+                      </p>
+                      <p className="mt-1.5 font-mono text-2xl font-bold text-primary">
+                        {fmtUSD(resultA.withRR.costPerMeeting)}
+                      </p>
+                    </div>
+                    <div className="rounded border border-border bg-card px-3 py-3">
+                      <p className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground leading-tight">
+                        Enrichment waste cut
+                      </p>
+                      <p className="mt-1.5 font-mono text-2xl font-bold text-foreground">
+                        {fmtUSD(resultA.delta.enrichmentWasteEliminated)}
+                        <span className="ml-1 text-xs font-normal text-muted-foreground">saved</span>
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* 2-column comparison */}
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    {/* Column 1 — Current motion */}
                     <div className="rounded border border-border bg-card px-4 py-4">
                       <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
                         Your current motion
                       </p>
                       <div className="space-y-2">
-                        <MRow label="Data spend/mo" value={fmtUSD(resultA.current.monthlyDataCost)} />
-                        <MRow label="Enrichment waste" value={fmtUSD(resultA.current.enrichmentWaste)} />
                         <MRow label="Records/mo" value={fmtCount(resultA.current.recordsPerMonth)} />
+                        <MRow label="Enrichment cost" value={fmtUSD(resultA.current.monthlyDataCost)} />
                         <MRow label="Reply rate" value={currentReplyRate.toFixed(1) + '%'} />
                         <MRow label="Replies/mo" value={fmtCount(resultA.current.repliesPerMonth)} />
                         <MRow label="Meeting conv." value="18%" dim />
@@ -259,64 +287,38 @@ export default function CalculatorSection() {
                       </div>
                       <div className="mt-4 border-t border-border pt-3">
                         <p className="text-[10px] text-muted-foreground">Cost per meeting</p>
-                        <p className="mt-0.5 font-mono text-2xl font-bold" style={{ color: '#D97706' }}>
+                        <p className="mt-0.5 font-mono text-3xl font-bold" style={{ color: '#D97706' }}>
                           {fmtUSD(resultA.current.costPerMeeting)}
                         </p>
                       </div>
                     </div>
 
-                    {/* Column 2 — With RR */}
+                    {/* Column 2 — Signal-led motion */}
                     <div className="rounded border border-primary bg-emerald-950 px-4 py-4">
                       <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-emerald-600">
-                        Signal-led (warm inputs)
+                        Signal-led motion
                       </p>
                       <div className="space-y-2">
-                        <div>
-                          <MRow label="Records/mo" value={fmtCount(resultA.withRR.recordsContactedPerMonth)} />
-                          <p className="mt-0.5 text-[9px] text-muted-foreground leading-snug">
-                            Only ICP-matched signals enter your sequence
-                          </p>
-                        </div>
-                        <div>
-                          <MRow label="Enrichment cost" value={fmtUSD(resultA.withRR.enrichmentCost)} />
-                          <p className="mt-0.5 text-[9px] text-muted-foreground leading-snug">
-                            Enrichment runs after ICP gate — only on qualified records
-                          </p>
-                        </div>
-                        <div>
-                          <MRow label="Signal reply rate" value={resultA.withRR.signalReplyRate.toFixed(1) + '%'} />
-                          <p className="mt-0.5 text-[9px] text-muted-foreground leading-snug">
-                            2.8× uplift from signal context
-                          </p>
-                        </div>
+                        <MRow label="Records/mo" value={fmtCount(resultA.withRR.recordsContactedPerMonth)} />
+                        <MRow label="Enrichment cost" value={fmtUSD(resultA.withRR.enrichmentCost)} />
+                        <MRow label="Reply rate" value={resultA.withRR.signalReplyRate.toFixed(1) + '%'} />
                         <MRow label="Replies/mo" value={fmtCount(resultA.withRR.repliesPerMonth)} />
-                        <div>
-                          <MRow label="Meeting conv." value="22%" />
-                          <p className="mt-0.5 text-[9px] text-muted-foreground leading-snug">
-                            Higher — opener references public engagement
-                          </p>
-                        </div>
+                        <MRow label="Meeting conv." value="22%" />
                         <MRow label="Meetings/mo" value={fmtCount(resultA.withRR.meetingsPerMonth)} />
                       </div>
                       <div className="mt-4 border-t border-emerald-900 pt-3">
                         <p className="text-[10px] text-emerald-600">Cost per meeting</p>
-                        <p className="mt-0.5 font-mono text-2xl font-bold text-primary">
+                        <p className="mt-0.5 font-mono text-3xl font-bold text-primary">
                           {fmtUSD(resultA.withRR.costPerMeeting)}
                         </p>
                       </div>
                     </div>
+                  </div>
 
-                    {/* Column 3 — Delta */}
-                    <div className="rounded border border-border bg-card px-4 py-4">
-                      <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-                        The difference
-                      </p>
-                      <div className="space-y-2">
-                        <MRow label="CPM (current)" value={fmtUSD(resultA.current.costPerMeeting)} />
-                        <MRow label="CPM (signal-led)" value={fmtUSD(resultA.withRR.costPerMeeting)} />
-                        <MRow label="Enrichment waste cut" value={fmtUSD(resultA.delta.enrichmentWasteEliminated)} />
-                      </div>
-                      <div className="mt-4 border-t border-border pt-3">
+                  {/* Delta row */}
+                  <div className="mt-3 rounded border border-border bg-card px-4 py-4">
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
                         <p className="text-[10px] text-muted-foreground">Savings per meeting</p>
                         <p
                           className="mt-0.5 font-mono text-2xl font-bold"
@@ -326,16 +328,22 @@ export default function CalculatorSection() {
                           {fmtUSD(Math.abs(resultA.delta.savingsPerMeeting))}
                         </p>
                       </div>
-                      <p className="mt-3 text-[11px] text-muted-foreground leading-snug">
-                        {resultA.delta.rrCheaper
-                          ? 'Signal-led outreach produces a better cost per meeting on the same ICP, before any Richie Reach fee is considered.'
-                          : 'At this volume and reply rate, the cost per meeting difference is small. The signal advantage is meeting quality and pipeline fit, not raw unit economics.'}
-                      </p>
+                      <div className="text-right">
+                        <p className="text-[10px] text-muted-foreground">Enrichment waste cut</p>
+                        <p className="mt-0.5 font-mono text-lg font-semibold text-foreground">
+                          {fmtUSD(resultA.delta.enrichmentWasteEliminated)}
+                        </p>
+                      </div>
                     </div>
+                    <p className="mt-3 text-[11px] text-muted-foreground leading-snug">
+                      {resultA.delta.rrCheaper
+                        ? 'Signal-led outreach produces a better cost per meeting on the same ICP, before any Richie Reach fee is considered.'
+                        : 'At this volume and reply rate, the cost per meeting difference is small. The signal advantage is meeting quality and pipeline fit, not raw unit economics.'}
+                    </p>
                   </div>
 
                   {/* Pricing note panel */}
-                  <div className="mt-6 rounded border border-[#1E1E1E] bg-[#111111] px-5 py-5">
+                  <div className="mt-4 rounded border border-[#1E1E1E] bg-[#111111] px-5 py-5">
                     <p className="mb-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
                       How Richie Reach is priced
                     </p>

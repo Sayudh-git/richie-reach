@@ -1,3 +1,8 @@
+'use client'
+
+import { useRef } from 'react'
+import { useInView } from 'motion/react'
+import NumberFlow from '@number-flow/react'
 import GateVisual from '@/components/how-it-works/ui/GateVisual'
 
 const RAW_RECORDS = [
@@ -37,6 +42,9 @@ const PASSED_RECORDS = [
 ]
 
 export default function Section4() {
+  const counterRef = useRef<HTMLDivElement>(null)
+  const inView = useInView(counterRef, { once: true, amount: 0.8 })
+
   return (
     <section id="section-icp-gate" className="border-t border-border py-20 scroll-mt-16">
       <div className="mx-auto max-w-6xl px-6">
@@ -53,19 +61,25 @@ export default function Section4() {
 
         <GateVisual rawRecords={RAW_RECORDS} passedRecords={PASSED_RECORDS} />
 
-        <div className="mt-8 flex flex-wrap gap-8 justify-center">
+        <div ref={counterRef} className="mt-8 flex flex-wrap gap-8 justify-center">
           <div className="text-center">
-            <p className="font-mono text-2xl text-foreground">500</p>
+            <p className="font-mono text-2xl text-foreground">
+              <NumberFlow value={inView ? 500 : 0} />
+            </p>
             <p className="mt-1 font-mono text-xs text-muted-foreground">signals monitored</p>
           </div>
           <div className="flex items-center text-border font-mono text-xl">→</div>
           <div className="text-center">
-            <p className="font-mono text-2xl text-primary">87</p>
+            <p className="font-mono text-2xl text-primary">
+              <NumberFlow value={inView ? 87 : 0} />
+            </p>
             <p className="mt-1 font-mono text-xs text-muted-foreground">passed the gate</p>
           </div>
           <div className="flex items-center text-border font-mono text-xl">→</div>
           <div className="text-center">
-            <p className="font-mono text-2xl text-primary">87</p>
+            <p className="font-mono text-2xl text-primary">
+              <NumberFlow value={inView ? 87 : 0} />
+            </p>
             <p className="mt-1 font-mono text-xs text-muted-foreground">sent to enrichment</p>
           </div>
         </div>

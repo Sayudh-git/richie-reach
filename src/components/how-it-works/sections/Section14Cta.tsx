@@ -31,8 +31,9 @@ export default function Section14Cta() {
           <div className="absolute top-0 left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-emerald-400/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
           <div className="relative z-10 text-center">
-            <h2 className="text-3xl font-semibold text-foreground md:text-4xl">
-              If outbound is a serious priority, let&apos;s talk.
+            <h2 className="font-serif italic text-3xl font-semibold text-foreground md:text-4xl">
+              If outbound is a serious priority,{' '}
+              <span className="text-emerald-400">let&apos;s talk.</span>
             </h2>
 
             <p className="mt-5 text-[15px] text-muted-foreground">

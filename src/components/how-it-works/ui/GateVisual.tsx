@@ -1,3 +1,7 @@
+'use client'
+
+import { useRef } from 'react'
+import { motion, useInView } from 'motion/react'
 import Avatar from 'boring-avatars'
 
 interface RawRecord {
@@ -39,19 +43,25 @@ function LinkedInDot() {
 }
 
 export default function GateVisual({ rawRecords, passedRecords }: GateVisualProps) {
+  const ref = useRef<HTMLDivElement>(null)
+  const inView = useInView(ref, { once: true, amount: 0.3 })
+
   return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-[1fr_160px_1fr]">
+    <div ref={ref} className="grid grid-cols-1 gap-4 md:grid-cols-[1fr_160px_1fr]">
       {/* Left — Raw Signals */}
       <div>
         <p className="mb-3 font-mono text-xs tracking-widest text-muted-foreground uppercase">Raw Signals</p>
         <div className="space-y-1.5">
           {rawRecords.map((r, i) => (
-            <div
+            <motion.div
               key={i}
+              initial={{ opacity: 0, y: 10 }}
+              animate={inView ? { opacity: r.passed ? 1 : 0.55, y: 0 } : { opacity: 0, y: 10 }}
+              transition={{ duration: 0.35, delay: i * 0.06 }}
               className={`rounded border px-3 py-2 ${
                 r.passed
                   ? 'border-border bg-card'
-                  : 'border-[#2D1515] bg-[#160A0A] opacity-60'
+                  : 'border-[#2D1515] bg-[#160A0A]'
               }`}
             >
               <div className="flex items-center gap-2">
@@ -67,7 +77,7 @@ export default function GateVisual({ rawRecords, passedRecords }: GateVisualProp
               {!r.passed && r.failReason && (
                 <p className="mt-1 ml-10 font-mono text-[10px] text-[#991B1B]">{r.failReason}</p>
               )}
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -77,8 +87,11 @@ export default function GateVisual({ rawRecords, passedRecords }: GateVisualProp
         <p className="mb-3 font-mono text-xs tracking-widest text-muted-foreground uppercase">ICP Gate</p>
         <div className="flex flex-col items-center gap-1.5 w-full">
           {GATE_CRITERIA.map((c, i) => (
-            <div
+            <motion.div
               key={i}
+              initial={{ opacity: 0, y: 10 }}
+              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+              transition={{ duration: 0.35, delay: 0.15 + i * 0.07 }}
               className={`w-full rounded px-2.5 py-1.5 text-center font-mono text-[10px] ${
                 c.type === 'hard'
                   ? 'border border-primary bg-emerald-950 text-primary'
@@ -87,7 +100,7 @@ export default function GateVisual({ rawRecords, passedRecords }: GateVisualProp
             >
               {c.label}
               <span className="ml-1 opacity-60">{c.type === 'hard' ? '⬤' : '○'}</span>
-            </div>
+            </motion.div>
           ))}
           <div className="mt-1 text-center font-mono text-[9px] text-muted-foreground">
             ⬤ hard gate &nbsp; ○ soft
@@ -100,9 +113,20 @@ export default function GateVisual({ rawRecords, passedRecords }: GateVisualProp
         <p className="mb-3 font-mono text-xs tracking-widest text-muted-foreground uppercase">Passed ICP</p>
         <div className="space-y-1.5">
           {passedRecords.map((r, i) => (
-            <div
+            <motion.div
               key={i}
-              className="relative rounded border border-emerald-900 bg-[#0A0F0C] px-3 py-3"
+              className="relative rounded border bg-[#0A0F0C] px-3 py-3"
+              initial={{ opacity: 0, x: 8 }}
+              animate={inView ? {
+                opacity: 1,
+                x: 0,
+                borderColor: ['rgba(45,212,191,0.5)', 'rgb(6,78,59)'],
+              } : { opacity: 0, x: 8 }}
+              transition={{
+                opacity: { duration: 0.35, delay: 0.35 + i * 0.06 },
+                x: { duration: 0.35, delay: 0.35 + i * 0.06 },
+                borderColor: { duration: 0.7, delay: 0.5 + i * 0.06 },
+              }}
             >
               <span className="absolute top-2 right-2 font-mono text-[9px] text-emerald-700">
                 ICP ✓
@@ -118,7 +142,7 @@ export default function GateVisual({ rawRecords, passedRecords }: GateVisualProp
                   <p className="text-xs text-muted-foreground">{r.title}, {r.company}</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
