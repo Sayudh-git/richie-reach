@@ -206,7 +206,7 @@ export default function CalculatorSection() {
         >
           <div className="mb-2 flex items-center gap-2">
             <Icons.icon className="h-4 w-4 text-emerald-500" />
-            <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+            <span className="section-label">
               SIGNAL ROI
             </span>
           </div>
@@ -244,7 +244,7 @@ export default function CalculatorSection() {
                   {/* KPI strip — 3 headline numbers */}
                   <div className="mb-4 grid grid-cols-3 gap-2">
                     <div className="rounded border border-border bg-card px-3 py-3">
-                      <p className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground leading-tight">
+                      <p className="font-mono text-[10px] md:text-[9px] uppercase tracking-widest text-muted-foreground leading-tight">
                         Cost per meeting (current)
                       </p>
                       <p className="mt-1.5 font-mono text-2xl font-bold" style={{ color: '#D97706' }}>
@@ -252,7 +252,7 @@ export default function CalculatorSection() {
                       </p>
                     </div>
                     <div className="rounded border border-primary bg-emerald-950 px-3 py-3">
-                      <p className="font-mono text-[9px] uppercase tracking-widest text-emerald-600 leading-tight">
+                      <p className="font-mono text-[10px] md:text-[9px] uppercase tracking-widest text-emerald-600 leading-tight">
                         Cost per meeting (signal-led)
                       </p>
                       <p className="mt-1.5 font-mono text-2xl font-bold text-primary">
@@ -260,7 +260,7 @@ export default function CalculatorSection() {
                       </p>
                     </div>
                     <div className="rounded border border-border bg-card px-3 py-3">
-                      <p className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground leading-tight">
+                      <p className="font-mono text-[10px] md:text-[9px] uppercase tracking-widest text-muted-foreground leading-tight">
                         Enrichment waste cut
                       </p>
                       <p className="mt-1.5 font-mono text-2xl font-bold text-foreground">
@@ -343,7 +343,7 @@ export default function CalculatorSection() {
                   </div>
 
                   {/* Pricing note panel */}
-                  <div className="mt-4 rounded border border-[#1E1E1E] bg-[#111111] px-5 py-5">
+                  <div className="mt-4 rounded border border-border bg-card px-5 py-5">
                     <p className="mb-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
                       How Richie Reach is priced
                     </p>
@@ -363,7 +363,7 @@ export default function CalculatorSection() {
                   <div className="mt-4">
                     <button
                       onClick={() => setPipelineOpen((p) => !p)}
-                      className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-[#1E1E1E] bg-[#111111] px-3 py-1.5 font-mono text-[11px] text-[#8B9BB4] hover:border-[#2DD4BF]/30 hover:text-[#2DD4BF] transition-colors"
+                      className="mt-4 inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1.5 font-mono text-[11px] text-[#8B9BB4] hover:border-[#2DD4BF]/30 hover:text-[#2DD4BF] transition-colors"
                     >
                       <span>{pipelineOpen ? '▾' : '▸'}</span>
                       {pipelineOpen ? 'Hide' : 'See'} pipeline projection
@@ -465,7 +465,7 @@ export default function CalculatorSection() {
                   </div>
 
                   {/* Pricing note panel */}
-                  <div className="mt-6 rounded border border-[#1E1E1E] bg-[#111111] px-5 py-5">
+                  <div className="mt-6 rounded border border-border bg-card px-5 py-5">
                     <p className="mb-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
                       How Richie Reach is priced
                     </p>

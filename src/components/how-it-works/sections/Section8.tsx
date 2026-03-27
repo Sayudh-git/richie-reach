@@ -1,3 +1,7 @@
+'use client'
+
+import { motion } from 'motion/react'
+
 const WATERFALL = [
   {
     tier: 'Tier 1',
@@ -27,10 +31,16 @@ const WATERFALL = [
 
 export default function Section8() {
   return (
-    <section id="section-enrichment" className="border-t border-border py-20 scroll-mt-16">
-      <div className="mx-auto max-w-6xl px-6">
-        <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">
-          Stage 6 — Enrichment Waterfall
+    <section id="section-enrichment" className="border-t border-border py-20 scroll-mt-20">
+      <motion.div
+        className="mx-auto max-w-6xl px-6"
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.5 }}
+      >
+        <p className="mb-3 section-label">
+          <span className="mr-2 inline-flex items-center rounded-full border border-primary bg-emerald-950 px-2 py-0.5 text-primary">06</span>Enrichment Waterfall
         </p>
         <h2 className="mb-5 text-3xl text-foreground">Three tools. One verified email. $0.87 per run.</h2>
         <p className="mb-8 max-w-xl text-[15px] leading-[1.75] text-muted-foreground">
@@ -39,12 +49,13 @@ export default function Section8() {
           delivered with the LinkedIn URL only and email set to null.
         </p>
 
+        <div className="relative">
         <div className="overflow-x-auto">
           <table className="w-full border-collapse">
             <thead>
               <tr className="border-b border-border">
                 {['Tier', 'Tool', 'Role', 'Cost', 'Coverage', 'API'].map((h) => (
-                  <th key={h} className="pb-3 pr-6 text-left font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">
+                  <th key={h} className="pb-3 pr-6 text-left text-[12px] section-label">
                     {h}
                   </th>
                 ))}
@@ -52,7 +63,7 @@ export default function Section8() {
             </thead>
             <tbody>
               {WATERFALL.map((row, i) => (
-                <tr key={i} className="border-b border-border transition-colors hover:bg-[#0F0F0F]">
+                <tr key={i} className="border-b border-border transition-colors hover:bg-card">
                   <td className="py-3 pr-6 font-mono text-xs text-muted-foreground">{row.tier}</td>
                   <td className="py-3 pr-6 font-mono text-sm text-foreground">{row.tool}</td>
                   <td className="py-3 pr-6 text-sm text-muted-foreground">{row.role}</td>
@@ -69,21 +80,23 @@ export default function Section8() {
             </tbody>
           </table>
         </div>
+          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[#0A0A0A] to-transparent md:hidden" />
+        </div>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2">
-          <div className="rounded border border-border bg-card px-5 py-4">
+          <div className="rounded border border-border bg-card px-5 py-4 shadow-[0_1px_3px_rgba(0,0,0,0.4)]">
             <p className="font-mono text-xs text-muted-foreground">Without ICP gate</p>
             <p className="mt-2 font-mono text-lg text-foreground">$5.00 <span className="text-sm text-muted-foreground">per run</span></p>
             <p className="mt-1 font-mono text-xs text-muted-foreground">500 records × $0.01</p>
           </div>
-          <div className="rounded border border-primary bg-emerald-950 px-5 py-4">
+          <div className="rounded border border-primary bg-emerald-950 px-5 py-4 shadow-[0_1px_3px_rgba(0,0,0,0.4)]">
             <p className="font-mono text-xs text-muted-foreground">With ICP gate</p>
             <p className="mt-2 font-mono text-lg text-primary">$0.87 <span className="text-sm text-muted-foreground">per run</span></p>
             <p className="mt-1 font-mono text-xs text-muted-foreground">87 records × $0.01</p>
           </div>
         </div>
         <p className="mt-3 font-mono text-xs text-muted-foreground">83% cost reduction from filtering before enrichment.</p>
-      </div>
+      </motion.div>
     </section>
   )
 }

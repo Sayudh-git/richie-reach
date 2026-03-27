@@ -35,13 +35,13 @@ export default function Accordion({ label, children, defaultOpen = false }: Acco
       <AnimatePresence initial={false}>
         {open && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
+            initial={{ height: 0 }}
+            animate={{ height: 'auto' }}
+            exit={{ height: 0 }}
             transition={{ duration: 0.22, ease: 'easeInOut' }}
             style={{ overflow: 'hidden' }}
           >
-            <div className="px-5 py-4 bg-[#0D0D0D] border-t border-border">
+            <div className="px-5 py-4 bg-background border-t border-border">
               {children}
             </div>
           </motion.div>

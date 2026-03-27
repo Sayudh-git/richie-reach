@@ -1,3 +1,6 @@
+'use client'
+
+import { motion } from 'motion/react'
 import CodePanel from '@/components/how-it-works/ui/CodePanel'
 
 const MONITOR_CONFIG = `
@@ -26,10 +29,16 @@ const MONITOR_CONFIG = `
 
 export default function Section3() {
   return (
-    <section id="section-signal-monitor" className="border-t border-border py-20 scroll-mt-16">
-      <div className="mx-auto max-w-6xl px-6">
-        <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">
-          Stage 1 — Signal Monitor
+    <section id="section-signal-monitor" className="border-t border-border py-20 scroll-mt-20">
+      <motion.div
+        className="mx-auto max-w-6xl px-6"
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.5 }}
+      >
+        <p className="mb-3 section-label">
+          <span className="mr-2 inline-flex items-center rounded-full border border-primary bg-emerald-950 px-2 py-0.5 text-primary">01</span>Signal Monitor
         </p>
         <h2 className="mb-5 text-3xl text-foreground">The engine runs every 4 hours.</h2>
         <p className="mb-8 max-w-xl text-[15px] leading-[1.75] text-muted-foreground">
@@ -45,7 +54,7 @@ export default function Section3() {
           language="json"
           label="Monitor config — example client setup"
         />
-      </div>
+      </motion.div>
     </section>
   )
 }

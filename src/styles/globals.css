@@ -203,7 +203,7 @@ html.lenis body {
 .noise-overlay {
   position: fixed;
   inset: 0;
-  opacity: 0.04;
+  opacity: 0.06;
   mix-blend-mode: overlay;
   pointer-events: none;
   z-index: 9998;
@@ -386,4 +386,16 @@ input[type='range'].rr-slider-v2::-moz-range-thumb {
   background: #10B981;
   cursor: pointer;
   border: 2px solid #0A0A0A;
+}
+
+@keyframes dash-flow {
+  to { stroke-dashoffset: -24; }
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted-foreground);
 }

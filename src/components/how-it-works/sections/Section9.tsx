@@ -1,3 +1,7 @@
+'use client'
+
+import { motion } from 'motion/react'
+
 const FACTS = [
   {
     label: 'Domains',
@@ -18,10 +22,16 @@ const FACTS = [
 
 export default function Section9() {
   return (
-    <section id="section-zapmail" className="border-t border-border py-20 scroll-mt-16">
-      <div className="mx-auto max-w-6xl px-6">
-        <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">
-          Stage 7 — Outreach Infrastructure (ZapMail)
+    <section id="section-zapmail" className="border-t border-border py-20 scroll-mt-20">
+      <motion.div
+        className="mx-auto max-w-6xl px-6"
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.5 }}
+      >
+        <p className="mb-3 section-label">
+          <span className="mr-2 inline-flex items-center rounded-full border border-primary bg-emerald-950 px-2 py-0.5 text-primary">07</span>Outreach Infrastructure (ZapMail)
         </p>
         <h2 className="mb-5 text-3xl text-foreground">
           Mailboxes provisioned separately from the primary domain.
@@ -36,9 +46,9 @@ export default function Section9() {
           {FACTS.map((fact) => (
             <div
               key={fact.label}
-              className="rounded border border-border bg-card px-5 py-4"
+              className="rounded border border-border bg-card px-5 py-4 shadow-[0_1px_3px_rgba(0,0,0,0.4)] transition-all duration-200 hover:border-white/[0.12] hover:shadow-[0_2px_8px_rgba(0,0,0,0.3)]"
             >
-              <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">
+              <p className="section-label">
                 {fact.label}
               </p>
               <p className="mt-2 text-sm text-foreground">{fact.value}</p>
@@ -46,7 +56,7 @@ export default function Section9() {
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }

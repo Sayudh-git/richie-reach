@@ -46,10 +46,10 @@ export default function Section4() {
   const inView = useInView(counterRef, { once: true, amount: 0.8 })
 
   return (
-    <section id="section-icp-gate" className="border-t border-border py-20 scroll-mt-16">
+    <section id="section-icp-gate" className="border-t border-border py-20 scroll-mt-20">
       <div className="mx-auto max-w-6xl px-6">
-        <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">
-          Stage 2 — ICP Gate
+        <p className="mb-3 section-label">
+          <span className="mr-2 inline-flex items-center rounded-full border border-primary bg-emerald-950 px-2 py-0.5 text-primary">02</span>ICP Gate
         </p>
         <h2 className="mb-5 text-3xl text-foreground">Enrichment starts here. Not before.</h2>
         <p className="mb-8 max-w-xl text-[15px] leading-[1.75] text-muted-foreground">

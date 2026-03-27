@@ -33,5 +33,5 @@ export const CsvIcon = ({ className }: { className?: string }) => (
 );
 
 export const ClayIcon = ({ className }: { className?: string }) => (
-    <img src="/icons/clay.svg" alt="Clay" className={className} />
+    <img src="/icons/tools/clay.png" alt="Clay" className={className} />
 );

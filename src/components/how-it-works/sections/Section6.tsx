@@ -1,3 +1,5 @@
+'use client'
+
 const SKILL_AGENTS = [
   {
     name: 'campaign_selector',
@@ -61,17 +63,17 @@ function BranchConnector({ direction }: { direction: 'down' | 'up' }) {
       >
         {direction === 'down' ? (
           <>
-            <path d="M300,0 Q150,16 75,32" stroke="#10B981" strokeWidth="1" fill="none" />
-            <path d="M300,0 Q250,16 225,32" stroke="#10B981" strokeWidth="1" fill="none" />
-            <path d="M300,0 Q350,16 375,32" stroke="#10B981" strokeWidth="1" fill="none" />
-            <path d="M300,0 Q450,16 525,32" stroke="#10B981" strokeWidth="1" fill="none" />
+            <path d="M300,0 Q150,16 75,32" stroke="#10B981" strokeWidth="1" fill="none" strokeDasharray="4 8" style={{ animation: 'dash-flow 1.5s linear infinite' }} />
+            <path d="M300,0 Q250,16 225,32" stroke="#10B981" strokeWidth="1" fill="none" strokeDasharray="4 8" style={{ animation: 'dash-flow 1.5s linear infinite' }} />
+            <path d="M300,0 Q350,16 375,32" stroke="#10B981" strokeWidth="1" fill="none" strokeDasharray="4 8" style={{ animation: 'dash-flow 1.5s linear infinite' }} />
+            <path d="M300,0 Q450,16 525,32" stroke="#10B981" strokeWidth="1" fill="none" strokeDasharray="4 8" style={{ animation: 'dash-flow 1.5s linear infinite' }} />
           </>
         ) : (
           <>
-            <path d="M75,0 Q150,16 300,32" stroke="#10B981" strokeWidth="1" fill="none" />
-            <path d="M225,0 Q250,16 300,32" stroke="#10B981" strokeWidth="1" fill="none" />
-            <path d="M375,0 Q350,16 300,32" stroke="#10B981" strokeWidth="1" fill="none" />
-            <path d="M525,0 Q450,16 300,32" stroke="#10B981" strokeWidth="1" fill="none" />
+            <path d="M75,0 Q150,16 300,32" stroke="#10B981" strokeWidth="1" fill="none" strokeDasharray="4 8" style={{ animation: 'dash-flow 1.5s linear infinite' }} />
+            <path d="M225,0 Q250,16 300,32" stroke="#10B981" strokeWidth="1" fill="none" strokeDasharray="4 8" style={{ animation: 'dash-flow 1.5s linear infinite' }} />
+            <path d="M375,0 Q350,16 300,32" stroke="#10B981" strokeWidth="1" fill="none" strokeDasharray="4 8" style={{ animation: 'dash-flow 1.5s linear infinite' }} />
+            <path d="M525,0 Q450,16 300,32" stroke="#10B981" strokeWidth="1" fill="none" strokeDasharray="4 8" style={{ animation: 'dash-flow 1.5s linear infinite' }} />
           </>
         )}
       </svg>
@@ -81,10 +83,10 @@ function BranchConnector({ direction }: { direction: 'down' | 'up' }) {
 
 export default function Section6() {
   return (
-    <section id="section-copy-generation" className="border-t border-border py-20 scroll-mt-16">
+    <section id="section-copy-generation" className="border-t border-border py-20 scroll-mt-20">
       <div className="mx-auto max-w-6xl px-6">
-        <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">
-          Stage 4 — Copy Generation (claude sonnet 4.6)
+        <p className="mb-3 section-label">
+          <span className="mr-2 inline-flex items-center rounded-full border border-primary bg-emerald-950 px-2 py-0.5 text-primary">04</span>Copy Generation (claude sonnet 4.6)
         </p>
         <h2 className="mb-5 text-3xl text-foreground">Every email is written to the signal, not the job title.</h2>
         <p className="mb-10 max-w-xl text-[15px] leading-[1.75] text-muted-foreground">
@@ -117,7 +119,7 @@ export default function Section6() {
           {/* 4 Skill Agents — 2×2 grid */}
           <div className="grid gap-3 sm:grid-cols-2">
             {SKILL_AGENTS.map((agent) => (
-              <div key={agent.name} className="rounded border border-border bg-[#0D0D0D] px-5 py-5">
+              <div key={agent.name} className="rounded border border-border bg-background px-5 py-5 transition-all duration-200 hover:border-white/[0.12] hover:shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
                 <span className="font-mono text-xs text-primary">{agent.name}</span>
                 <div className="mt-1.5 flex gap-3 font-mono text-[10px] text-muted-foreground">
                   <span>in: {agent.input}</span>

@@ -57,7 +57,7 @@ export default function GateVisual({ rawRecords, passedRecords }: GateVisualProp
               key={i}
               initial={{ opacity: 0, y: 10 }}
               animate={inView ? { opacity: r.passed ? 1 : 0.55, y: 0 } : { opacity: 0, y: 10 }}
-              transition={{ duration: 0.35, delay: i * 0.06 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 24, delay: i * 0.06 }}
               className={`rounded border px-3 py-2 ${
                 r.passed
                   ? 'border-border bg-card'
@@ -91,7 +91,7 @@ export default function GateVisual({ rawRecords, passedRecords }: GateVisualProp
               key={i}
               initial={{ opacity: 0, y: 10 }}
               animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-              transition={{ duration: 0.35, delay: 0.15 + i * 0.07 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 24, delay: 0.15 + i * 0.07 }}
               className={`w-full rounded px-2.5 py-1.5 text-center font-mono text-[10px] ${
                 c.type === 'hard'
                   ? 'border border-primary bg-emerald-950 text-primary'
@@ -102,7 +102,7 @@ export default function GateVisual({ rawRecords, passedRecords }: GateVisualProp
               <span className="ml-1 opacity-60">{c.type === 'hard' ? '⬤' : '○'}</span>
             </motion.div>
           ))}
-          <div className="mt-1 text-center font-mono text-[9px] text-muted-foreground">
+          <div className="mt-1 text-center font-mono text-[10px] md:text-[9px] text-muted-foreground">
             ⬤ hard gate &nbsp; ○ soft
           </div>
         </div>
@@ -128,7 +128,7 @@ export default function GateVisual({ rawRecords, passedRecords }: GateVisualProp
                 borderColor: { duration: 0.7, delay: 0.5 + i * 0.06 },
               }}
             >
-              <span className="absolute top-2 right-2 font-mono text-[9px] text-emerald-700">
+              <span className="absolute top-2 right-2 font-mono text-[10px] md:text-[9px] text-emerald-700">
                 ICP ✓
               </span>
               <div className="flex items-center gap-3">

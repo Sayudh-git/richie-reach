@@ -78,11 +78,49 @@ const FORK: ForkCell = {
 
 function ConditionBadge({ condition }: { condition: string }) {
   return (
-    <span className="mt-1.5 inline-flex items-center rounded-sm bg-[rgba(255,255,255,0.06)] px-1.5 py-0.5 font-mono text-[9px] text-muted-foreground border border-border">
+    <span className="mt-1.5 inline-flex items-center rounded-sm bg-[rgba(255,255,255,0.06)] px-1.5 py-0.5 font-mono text-[10px] md:text-[9px] text-muted-foreground border border-border">
       if: {condition}
     </span>
   )
 }
+
+// Merge all timeline events into a sorted list for mobile
+interface TimelineEvent {
+  day: string
+  dayNum: number
+  channel: 'email' | 'linkedin'
+  label: string
+  detail: string
+  condition?: string
+  isFork?: boolean
+  branches?: { label: string; detail: string; positive?: boolean }[]
+}
+
+function buildTimeline(): TimelineEvent[] {
+  const events: TimelineEvent[] = []
+  const dayNum = (d: string) => parseInt(d.replace('Day ', ''))
+
+  for (const cell of Object.values(EMAIL_CELLS)) {
+    events.push({ ...cell, dayNum: dayNum(cell.day) })
+  }
+  for (const cell of Object.values(LINKEDIN_CELLS)) {
+    events.push({ ...cell, dayNum: dayNum(cell.day) })
+  }
+  events.push({
+    day: FORK.day,
+    dayNum: dayNum(FORK.day),
+    channel: 'linkedin',
+    label: 'Fork',
+    detail: '',
+    isFork: true,
+    branches: FORK.branches,
+  })
+
+  events.sort((a, b) => a.dayNum - b.dayNum || (a.channel === 'email' ? -1 : 1))
+  return events
+}
+
+const MOBILE_TIMELINE = buildTimeline()
 
 export default function MultichannelGrid() {
   const ref = useRef<HTMLDivElement>(null)
@@ -90,14 +128,72 @@ export default function MultichannelGrid() {
 
   return (
     <div ref={ref}>
-      {/* Grid container — horizontal scroll on mobile */}
-      <div className="overflow-x-auto">
+      {/* Mobile vertical timeline */}
+      <div className="md:hidden">
+        <div className="relative space-y-0">
+          {/* Vertical connector line */}
+          <div className="absolute top-0 bottom-0 left-[15px] w-px bg-border" />
+
+          {MOBILE_TIMELINE.map((event, i) => (
+            <motion.div
+              key={`${event.day}-${event.channel}`}
+              initial={{ opacity: 0, x: -8 }}
+              animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -8 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 24, delay: i * 0.06 }}
+              className="relative flex gap-3 py-2"
+            >
+              {/* Node dot */}
+              <div className="relative z-10 mt-1 flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-full border border-border bg-card">
+                {event.channel === 'email' ? (
+                  <Mail className="h-3.5 w-3.5 text-muted-foreground" />
+                ) : (
+                  <Linkedin className="h-3.5 w-3.5 text-[#0A66C2]" />
+                )}
+              </div>
+
+              {/* Content */}
+              <div className="min-w-0 flex-1 rounded border border-border bg-card px-3 py-2.5">
+                <div className="flex items-center gap-2">
+                  <span className="font-mono text-[10px] tracking-wider text-muted-foreground">{event.day}</span>
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground/60">{event.channel}</span>
+                </div>
+
+                {event.isFork ? (
+                  <>
+                    <p className="mt-1 text-[13px] font-medium text-foreground">Fork</p>
+                    <div className="mt-1.5 space-y-1">
+                      {event.branches?.map((b, bi) => (
+                        <div key={bi} className={`rounded px-2 py-1 text-[12px] ${
+                          b.positive
+                            ? 'bg-[#0A1A10] text-[#2DD4BF]'
+                            : 'bg-background text-muted-foreground'
+                        }`}>
+                          <span className="font-medium">{b.label}:</span> {b.detail}
+                        </div>
+                      ))}
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <p className="mt-1 text-[13px] font-medium text-foreground">{event.label}</p>
+                    <p className="mt-0.5 text-[12px] text-muted-foreground leading-snug">{event.detail}</p>
+                    {event.condition && <ConditionBadge condition={event.condition} />}
+                  </>
+                )}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Desktop grid */}
+      <div className="hidden md:block overflow-x-auto">
         <div className="relative min-w-[700px]">
           {/* Flowing scan highlight — sweeps left-to-right over the grid */}
           <motion.div
-            className="pointer-events-none absolute inset-y-0 w-[180px] bg-gradient-to-r from-transparent via-[#2DD4BF]/[0.04] to-transparent"
-            animate={{ x: ['-180px', '800px'] }}
-            transition={{ duration: 7, repeat: Infinity, ease: 'linear', repeatDelay: 3 }}
+            className="pointer-events-none absolute inset-y-0 w-[240px] bg-gradient-to-r from-transparent via-[#2DD4BF]/[0.04] to-transparent"
+            animate={{ x: ['-240px', '800px'] }}
+            transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', repeatDelay: 3 }}
           />
           {/* Header row — days */}
           <div className="grid grid-cols-[80px_repeat(7,1fr)] gap-1">
@@ -183,7 +279,7 @@ export default function MultichannelGrid() {
                         <div key={i} className={`rounded px-1.5 py-0.5 text-[12px] ${
                           b.positive
                             ? 'bg-[#0A1A10] text-[#2DD4BF]'
-                            : 'bg-[#0D0D0D] text-[#6B7280]'
+                            : 'bg-background text-muted-foreground'
                         }`}>
                           <span className="font-medium">{b.label}:</span> {b.detail}
                         </div>
@@ -226,8 +322,8 @@ export default function MultichannelGrid() {
       {/* Reply row — full width */}
       <motion.div
         className="mt-3 rounded border border-primary bg-emerald-950 px-4 py-3"
-        animate={{ opacity: [0.85, 1, 0.85] }}
-        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+        animate={{ opacity: [0.9, 1, 0.9] }}
+        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
       >
         <div className="flex items-center gap-2">
           <div className="h-2 w-2 rounded-full bg-primary" />

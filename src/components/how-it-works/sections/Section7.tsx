@@ -1,3 +1,6 @@
+'use client'
+
+import { motion } from 'motion/react'
 import Accordion from '@/components/how-it-works/ui/Accordion'
 import CodePanel from '@/components/how-it-works/ui/CodePanel'
 
@@ -51,10 +54,16 @@ const TIERS = [
 
 export default function Section7() {
   return (
-    <section id="section-composite-score" className="border-t border-border py-20 scroll-mt-16">
-      <div className="mx-auto max-w-6xl px-6">
-        <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">
-          Stage 5 — Composite Score
+    <section id="section-composite-score" className="border-t border-border py-20 scroll-mt-20">
+      <motion.div
+        className="mx-auto max-w-6xl px-6"
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.5 }}
+      >
+        <p className="mb-3 section-label">
+          <span className="mr-2 inline-flex items-center rounded-full border border-primary bg-emerald-950 px-2 py-0.5 text-primary">05</span>Composite Score
         </p>
         <h2 className="mb-5 text-3xl text-foreground">
           Records are scored before delivery. Not all signals are equal.
@@ -72,9 +81,9 @@ export default function Section7() {
         <div className="mt-10 grid gap-4 sm:grid-cols-3">
           {TIERS.map((tier) => (
             <div key={tier.label}>
-              <div className="mx-auto w-px h-4 border-l border-dashed border-[#1E1E1E]" />
+              <div className="mx-auto w-px h-4 border-l border-dashed border-border" />
             <div
-              className={`rounded border ${tier.borderColor} ${tier.bgColor} px-5 py-5`}
+              className={`rounded border ${tier.borderColor} ${tier.bgColor} px-5 py-5 shadow-[0_1px_3px_rgba(0,0,0,0.4)] transition-all duration-200 ${tier.label === 'HIGH' ? 'hover:border-primary/60 hover:shadow-[0_2px_12px_rgba(16,185,129,0.08)]' : 'hover:border-white/[0.12]'}`}
             >
               <div className="flex items-baseline gap-2">
                 <span className={`font-mono text-sm font-semibold ${tier.color}`}>{tier.label}</span>
@@ -85,7 +94,7 @@ export default function Section7() {
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }

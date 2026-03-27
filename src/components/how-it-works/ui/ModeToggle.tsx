@@ -14,7 +14,7 @@ const OPTIONS: { id: 'inhouse' | 'agency'; label: string }[] = [
 
 export default function ModeToggle({ mode, onChange }: ModeToggleProps) {
   return (
-    <div className="inline-flex rounded-full border border-border bg-[#0D0D0D] p-1">
+    <div className="inline-flex rounded-full border border-border bg-background p-1">
       {OPTIONS.map((opt) => (
         <button
           key={opt.id}

@@ -53,7 +53,7 @@ export default function SimulatorRecord({ record, phase, visible }: SimulatorRec
       animate={{ opacity: isDropped ? 0.35 : 1, y: 0 }}
       transition={{ duration: 0.25 }}
       className={`rounded border px-3 py-2.5 ${
-        isDropped ? 'border-[#2D1515] bg-[#0D0D0D]' : 'border-border bg-card'
+        isDropped ? 'border-[#2D1515] bg-background' : 'border-border bg-card'
       }`}
     >
       <div className="flex flex-wrap items-center gap-2">

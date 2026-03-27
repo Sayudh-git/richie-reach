@@ -1,3 +1,7 @@
+'use client'
+
+import { motion } from 'motion/react'
+
 const CLASSES = [
   {
     name: 'evaluating',
@@ -38,10 +42,16 @@ const CLASSES = [
 
 export default function Section5() {
   return (
-    <section id="section-ai-classification" className="border-t border-border py-20 scroll-mt-16">
-      <div className="mx-auto max-w-6xl px-6">
-        <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">
-          Stage 3 — AI Classification
+    <section id="section-ai-classification" className="border-t border-border py-20 scroll-mt-20">
+      <motion.div
+        className="mx-auto max-w-6xl px-6"
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.5 }}
+      >
+        <p className="mb-3 section-label">
+          <span className="mr-2 inline-flex items-center rounded-full border border-primary bg-emerald-950 px-2 py-0.5 text-primary">03</span>AI Classification
         </p>
         <h2 className="mb-5 text-3xl text-foreground">What did they actually say, and what does it mean?</h2>
         <p className="mb-8 max-w-xl text-[15px] leading-[1.75] text-muted-foreground">
@@ -50,19 +60,20 @@ export default function Section5() {
           the outreach copy in Stage 4.
         </p>
 
+        <div className="relative">
         <div className="overflow-x-auto">
           <table className="w-full border-collapse">
             <thead>
               <tr className="border-b border-border">
-                <th className="pb-3 text-left font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">Class</th>
-                <th className="pb-3 text-left font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">Weight</th>
-                <th className="pb-3 text-left font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">What it means</th>
-                <th className="pb-3 text-left font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">Example trigger</th>
+                <th className="pb-3 text-left text-[12px] section-label">Class</th>
+                <th className="pb-3 text-left text-[12px] section-label">Weight</th>
+                <th className="pb-3 text-left text-[12px] section-label">What it means</th>
+                <th className="pb-3 text-left text-[12px] section-label">Example trigger</th>
               </tr>
             </thead>
             <tbody>
               {CLASSES.map((c, i) => (
-                <tr key={i} className="border-b border-[#1E1E1E] transition-colors hover:bg-[#0F0F0F]">
+                <tr key={i} className="border-b border-border transition-colors hover:bg-card">
                   <td className="py-4 pr-6">
                     <span className={`font-mono text-sm ${c.color}`}>{c.name}</span>
                   </td>
@@ -80,12 +91,14 @@ export default function Section5() {
             </tbody>
           </table>
         </div>
+          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[#0A0A0A] to-transparent md:hidden" />
+        </div>
 
         <p className="mt-6 text-sm text-muted-foreground">
           The classification also triggers which campaign type and copy framework claude sonnet 4.6 will
           use in the next stage.
         </p>
-      </div>
+      </motion.div>
     </section>
   )
 }

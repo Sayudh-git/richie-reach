@@ -103,7 +103,7 @@ export default function SequenceTimeline() {
                         : 'border-border bg-card'
                     }`}
                   >
-                    <p className={`text-[12px] font-medium ${j === 0 ? 'text-[#2DD4BF]' : 'text-[#6B7280]'}`}>
+                    <p className={`text-[12px] font-medium ${j === 0 ? 'text-[#2DD4BF]' : 'text-muted-foreground'}`}>
                       {branch.label}
                     </p>
                     <p className="mt-0.5 text-[12px] text-muted-foreground">{branch.detail}</p>

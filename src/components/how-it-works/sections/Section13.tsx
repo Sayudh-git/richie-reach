@@ -1,3 +1,7 @@
+'use client'
+
+import { motion } from 'motion/react'
+
 const MATRIX_ROWS = [
   {
     label: 'Best for',
@@ -55,33 +59,40 @@ const NOT_FIT = [
 export default function Section13() {
   return (
     <section className="border-t border-border py-20">
-      <div className="mx-auto max-w-6xl px-6">
-        <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">
+      <motion.div
+        className="mx-auto max-w-6xl px-6"
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.5 }}
+      >
+        <p className="mb-3 section-label">
           How we work together
         </p>
         <h2 className="mb-10 text-3xl text-foreground">Three tiers. Clear ownership at every layer.</h2>
 
         {/* Ownership matrix table */}
+        <div className="relative">
         <div className="overflow-x-auto">
           <table className="w-full border-collapse">
             <thead>
               <tr className="border-b border-border">
-                <th className="pb-3 pr-4 text-left font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground w-[140px] min-w-[140px]" />
-                <th className="pb-3 px-4 text-left font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">
+                <th className="pb-3 pr-4 text-left text-[12px] section-label w-[140px] min-w-[140px]" />
+                <th className="pb-3 px-4 text-left text-[12px] section-label">
                   Signal Feed
                 </th>
-                <th className="pb-3 px-4 text-left font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">
+                <th className="pb-3 px-4 text-left text-[12px] section-label">
                   Signal Feed + Routing
                 </th>
-                <th className="pb-3 px-4 text-left font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">
+                <th className="pb-3 px-4 text-left text-[12px] section-label">
                   <span className="border-b-2 border-primary pb-1">Managed Outbound</span>
                 </th>
               </tr>
             </thead>
             <tbody>
               {MATRIX_ROWS.map((row, i) => (
-                <tr key={row.label} className={i % 2 === 0 ? 'bg-[#0A0A0A]' : 'bg-[#0D0D0D]'}>
-                  <td className="py-4 pr-4 font-mono text-[13px] text-[#8B9BB4] align-top min-w-[140px]">
+                <tr key={row.label} className={`transition-colors hover:bg-white/[0.02] ${i % 2 === 0 ? 'bg-[#0A0A0A]' : 'bg-background'}`}>
+                  <td className="py-4 pr-4 font-mono text-[13px] text-muted-foreground align-top min-w-[140px]">
                     {row.label}
                   </td>
                   <td className="py-4 px-4 text-sm text-foreground align-top">{row.signalFeed}</td>
@@ -91,6 +102,8 @@ export default function Section13() {
               ))}
             </tbody>
           </table>
+        </div>
+          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[#0A0A0A] to-transparent md:hidden" />
         </div>
 
         {/* Good fit / Not a fit */}
@@ -123,7 +136,7 @@ export default function Section13() {
           Not sure which tier fits?{' '}
           <a href="#contact" className="text-primary hover:underline">Book a 20-minute fit call</a>.
         </p>
-      </div>
+      </motion.div>
     </section>
   )
 }

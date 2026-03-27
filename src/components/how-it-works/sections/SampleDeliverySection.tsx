@@ -1,3 +1,7 @@
+'use client'
+
+import { motion } from 'motion/react'
+
 type EngClass = 'evaluating' | 'active_buyer' | 'category_engaged' | 'surface_engagement'
 
 interface DeliveryRow {
@@ -129,9 +133,15 @@ const HEADERS = ['NAME', 'TITLE', 'COMPANY', 'SIZE', 'INDUSTRY', 'LOCATION', 'TY
 
 export default function SampleDeliverySection() {
   return (
-    <section className="border-t border-border py-20 scroll-mt-16">
-      <div className="mx-auto max-w-6xl px-6">
-        <p className="mb-3 font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">
+    <section className="border-t border-border py-20 scroll-mt-20">
+      <motion.div
+        className="mx-auto max-w-6xl px-6"
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.15 }}
+        transition={{ duration: 0.5 }}
+      >
+        <p className="mb-3 section-label">
           What arrives each week
         </p>
         <h2 className="mb-3 text-3xl text-foreground">
@@ -144,13 +154,13 @@ export default function SampleDeliverySection() {
 
         <div className="relative">
           <div className="overflow-x-auto pb-2">
-          <table className="w-full border-collapse border border-[#1E1E1E]">
+          <table className="w-full border-collapse border border-border">
             <thead>
-              <tr className="border-b border-[#1E1E1E]">
+              <tr className="border-b border-border">
                 {HEADERS.map((h) => (
                   <th
                     key={h}
-                    className="px-3 py-2 text-left font-mono text-[11px] text-[#6B7280] tracking-wider whitespace-nowrap"
+                    className={`px-3 py-2 text-left font-mono text-[12px] text-muted-foreground tracking-wider whitespace-nowrap${h === 'NAME' ? ' sticky left-0 z-10 bg-[#0A0A0A]' : ''}`}
                   >
                     {h}
                   </th>
@@ -161,9 +171,9 @@ export default function SampleDeliverySection() {
               {ROWS.map((row, i) => (
                 <tr
                   key={i}
-                  className={`border-b border-[#1E1E1E] ${i % 2 === 0 ? 'bg-[#0A0A0A]' : 'bg-[#0D0D0D]'} ${row.belowGate ? 'opacity-40' : ''}`}
+                  className={`border-b border-border ${i % 2 === 0 ? 'bg-[#0A0A0A]' : 'bg-background'} ${row.belowGate ? 'opacity-40' : ''}`}
                 >
-                  <td className="px-3 py-2 font-mono text-[12px] text-foreground whitespace-nowrap">{row.name}</td>
+                  <td className="px-3 py-2 font-mono text-[12px] text-foreground whitespace-nowrap sticky left-0 z-10 bg-[#0A0A0A]">{row.name}</td>
                   <td className="px-3 py-2 font-mono text-[12px] text-foreground whitespace-nowrap">{row.title}</td>
                   <td className="px-3 py-2 font-mono text-[12px] text-foreground whitespace-nowrap">
                     {row.companyHidden ? (
@@ -202,11 +212,11 @@ export default function SampleDeliverySection() {
           <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[#0A0A0A] to-transparent md:hidden" />
         </div>
 
-        <p className="mt-6 text-center text-[14px] text-[#8B9BB4]">
+        <p className="mt-6 text-center text-[14px] text-muted-foreground">
           Delivered every week. Routable into Clay, any CRM, or webhook. Format adjusts to
           your stack.
         </p>
-      </div>
+      </motion.div>
     </section>
   )
 }

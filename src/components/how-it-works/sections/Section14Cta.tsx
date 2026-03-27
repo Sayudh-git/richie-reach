@@ -4,7 +4,7 @@ import { motion } from 'motion/react'
 
 export default function Section14Cta() {
   return (
-    <section id="contact" className="border-t border-border py-24 scroll-mt-16">
+    <section id="contact" className="border-t border-border py-24 scroll-mt-20">
       <div className="mx-auto max-w-4xl px-6">
         <motion.div
           className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#111] p-10 md:p-16 group"
@@ -15,8 +15,9 @@ export default function Section14Cta() {
         >
           {/* Emerald blur spot */}
           <div
-            className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[400px] w-[400px] rounded-full bg-emerald-500/10 blur-[100px]"
+            className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[400px] w-[400px] rounded-full bg-emerald-500/15 blur-[120px]"
           />
+          <div className="pointer-events-none absolute top-1/4 left-1/3 h-[300px] w-[300px] rounded-full bg-emerald-400/[0.08] blur-[80px]" />
 
           {/* Hover border glow */}
           <div
@@ -31,25 +32,43 @@ export default function Section14Cta() {
           <div className="absolute top-0 left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-emerald-400/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
           <div className="relative z-10 text-center">
-            <h2 className="font-serif italic text-3xl font-semibold text-foreground md:text-4xl">
+            <motion.h2
+              className="font-serif italic text-3xl font-semibold text-foreground md:text-4xl"
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0 }}
+            >
               If outbound is a serious priority,{' '}
               <span className="text-emerald-400">let&apos;s talk.</span>
-            </h2>
+            </motion.h2>
 
-            <p className="mt-5 text-[15px] text-muted-foreground">
+            <motion.p
+              className="mt-5 text-[15px] text-muted-foreground"
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+            >
               20-minute call to see if Richie Reach fits your outbound motion.
-            </p>
+            </motion.p>
 
-            <div className="mt-8">
+            <motion.div
+              className="mt-8"
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
               <button
                 data-cal-link="sayudh/15min"
                 data-cal-namespace="15min"
                 data-cal-config='{"layout":"month_view"}'
-                className="inline-block rounded-full bg-white px-8 py-3 font-mono text-sm font-semibold text-black transition-colors hover:bg-gray-100"
+                className="inline-block rounded-full bg-white px-8 py-3 font-mono text-sm font-semibold text-black transition-all hover:bg-gray-100 hover:shadow-[0_0_20px_rgba(16,185,129,0.15)]"
               >
                 Book a Fit Call
               </button>
-            </div>
+            </motion.div>
           </div>
         </motion.div>
       </div>

@@ -61,10 +61,10 @@ export default function PipelineOverview() {
       <div className="hidden md:block">
         <div ref={containerRef} className="relative">
           {/* Dark base track */}
-          <div className="absolute top-[22px] left-0 right-0 h-[2px] bg-[#2A2A2A]" />
+          <div className="absolute top-[22px] left-0 right-0 h-[3px] rounded-full bg-[#2A2A2A]" />
           {/* Emerald fill */}
           <motion.div
-            className="absolute top-[22px] left-0 right-0 h-[2px] bg-[rgba(45,212,191,0.3)]"
+            className="absolute top-[22px] left-0 right-0 h-[3px] rounded-full bg-[rgba(45,212,191,0.3)]"
             style={{ transformOrigin: 'left' }}
             initial={{ scaleX: 0 }}
             animate={{ scaleX: hasPlayed ? 1 : 0 }}
@@ -88,7 +88,9 @@ export default function PipelineOverview() {
                   className="group flex flex-col items-center gap-2 px-1 cursor-pointer"
                   style={{ minWidth: 0 }}
                 >
-                  <div
+                  <motion.div
+                    whileHover={{ scale: 1.08 }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 17 }}
                     className={`relative h-[46px] w-[46px] rounded-full border-2 flex items-center justify-center transition-colors ${
                       stage.inHouse
                         ? 'border-primary bg-emerald-950 group-hover:bg-emerald-900'
@@ -106,7 +108,7 @@ export default function PipelineOverview() {
                     <span className="relative z-10 font-mono text-[13px] font-semibold text-center leading-none text-muted-foreground">
                       {String(i + 1).padStart(2, '0')}
                     </span>
-                  </div>
+                  </motion.div>
                   <span
                     className={`text-center font-mono text-[12px] font-medium leading-snug max-w-[80px]`}
                     style={{ color: stage.inHouse ? '#F0EDE8' : '#B0BAC9' }}
@@ -122,11 +124,11 @@ export default function PipelineOverview() {
         <div className="mt-5 flex items-center gap-5">
           <div className="flex items-center gap-2">
             <div className="h-2.5 w-2.5 rounded-full border-2 border-primary" />
-            <span className="font-mono text-[12px] text-muted-foreground">In-house built</span>
+            <span className="font-mono text-[13px] text-muted-foreground">In-house built</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="h-2.5 w-2.5 rounded-full border-2 border-border" />
-            <span className="font-mono text-[12px] text-muted-foreground">Third-party tool</span>
+            <span className="font-mono text-[13px] text-muted-foreground">Third-party tool</span>
           </div>
         </div>
       </div>
@@ -147,7 +149,7 @@ export default function PipelineOverview() {
                       : 'border-border bg-card'
                   }`}
                 >
-                  <span className="font-mono text-[9px] font-bold text-muted-foreground">
+                  <span className="font-mono text-[10px] md:text-[9px] font-bold text-muted-foreground">
                     {String(i + 1).padStart(2, '0')}
                   </span>
                 </div>

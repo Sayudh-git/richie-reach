@@ -24,8 +24,8 @@ const TOOLS_GROUPS: { name: string; favicon?: string; badge?: string }[][] = [
 
 const ALL_TOOLS = TOOLS_GROUPS.flat()
 const TOTAL = ALL_TOOLS.length
-const STEP_MS = 800
-const PAUSE_MS = 2800
+const STEP_MS = 600
+const PAUSE_MS = 2200
 
 // Filled LinkedIn logo — same as marketing hero
 function LinkedInFilledIcon({ className }: { className?: string }) {
@@ -80,7 +80,7 @@ export default function Section1() {
       <div className="relative">
         {/* Zone 1 — Statement block */}
         <div>
-          <p className="mb-6 font-mono text-[11px] uppercase tracking-[0.12em]" style={{ color: '#6B7280' }}>
+          <p className="mb-6 section-label">
             Signal-Led Outbound Engine
           </p>
 
@@ -125,11 +125,11 @@ export default function Section1() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-[#1E1E1E]" />
+        <div className="border-t border-border" />
 
         {/* Zone 2 — Tools strip */}
         <div className="pt-10 mt-10">
-          <p className="mb-5 font-mono text-[11px] uppercase tracking-[0.12em]" style={{ color: '#6B7280' }}>
+          <p className="mb-5 section-label">
             Tools in the stack
           </p>
 
@@ -139,7 +139,7 @@ export default function Section1() {
               {TOOLS_GROUPS.map((group, gi) => (
                 <Fragment key={gi}>
                   {gi > 0 && (
-                    <div className="shrink-0 self-center border-r border-[#1E1E1E] h-4 mx-1" />
+                    <div className="shrink-0 self-center border-r border-border h-4 mx-1" />
                   )}
                   {group.map((tool) => {
                     const idx = toolIndex[tool.name]
@@ -172,7 +172,7 @@ export default function Section1() {
                           />
                         ) : (
                           <span
-                            className="flex h-5 w-5 items-center justify-center rounded font-mono text-[9px]"
+                            className="flex h-5 w-5 items-center justify-center rounded font-mono text-[10px] md:text-[9px]"
                             style={{
                               background: isActive ? 'rgba(45,212,191,0.18)' : 'rgba(255,255,255,0.08)',
                               color: isActive ? '#2DD4BF' : '#2DD4BF',

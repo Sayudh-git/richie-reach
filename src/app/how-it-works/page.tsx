@@ -51,21 +51,37 @@ export default function HowItWorksPage() {
       {/* JSON-LD: static structured data, safe to use dangerouslySetInnerHTML */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
       <ScrollProgress />
-      <Section1 />
+      <div className="bg-[#0C0C0C]">
+        <Section1 />
+      </div>
       <Section2 />
-      <Section3 />
+      <div className="bg-[#0C0C0C]">
+        <Section3 />
+      </div>
       <Section4 />
-      <Section5 />
+      <div className="bg-[#0C0C0C]">
+        <Section5 />
+      </div>
       <Section6 />
-      <Section7 />
+      <div className="bg-[#0C0C0C]">
+        <Section7 />
+      </div>
       <Section8 />
-      <Section9 />
+      <div className="bg-[#0C0C0C]">
+        <Section9 />
+      </div>
       <Section10 />
-      <Section11 />
+      <div className="bg-[#0C0C0C]">
+        <Section11 />
+      </div>
       <SampleDeliverySection />
-      <Section12 />
+      <div className="bg-[#0C0C0C]">
+        <Section12 />
+      </div>
       <Section13 />
-      <CalculatorSection />
+      <div className="bg-[#0C0C0C]">
+        <CalculatorSection />
+      </div>
       <Section14Cta />
       <ScrollToTop />
     </>

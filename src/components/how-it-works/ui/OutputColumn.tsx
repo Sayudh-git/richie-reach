@@ -20,7 +20,7 @@ export default function OutputColumn({ title, items, isPrimary, animKey = 0 }: O
         isPrimary ? 'border-primary bg-emerald-950' : 'border-border bg-card'
       }`}
     >
-      <p className="mb-4 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+      <p className="mb-4 section-label">
         {title}
       </p>
       <div className="space-y-3">
