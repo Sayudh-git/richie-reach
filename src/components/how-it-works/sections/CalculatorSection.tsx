@@ -241,7 +241,7 @@ export default function CalculatorSection() {
                 />
 
                 <div>
-                  {/* KPI strip — 3 headline numbers */}
+                  {/* KPI strip - 3 headline numbers */}
                   <div className="mb-4 grid grid-cols-3 gap-2">
                     <div className="rounded border border-border bg-card px-3 py-3">
                       <p className="font-mono text-[10px] md:text-[9px] uppercase tracking-widest text-muted-foreground leading-tight">
@@ -272,7 +272,7 @@ export default function CalculatorSection() {
 
                   {/* 2-column comparison */}
                   <div className="grid gap-3 sm:grid-cols-2">
-                    {/* Column 1 — Current motion */}
+                    {/* Column 1 - Current motion */}
                     <div className="rounded border border-border bg-card px-4 py-4">
                       <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
                         Your current motion
@@ -293,7 +293,7 @@ export default function CalculatorSection() {
                       </div>
                     </div>
 
-                    {/* Column 2 — Signal-led motion */}
+                    {/* Column 2 - Signal-led motion */}
                     <div className="rounded border border-primary bg-emerald-950 px-4 py-4">
                       <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-emerald-600">
                         Signal-led motion
@@ -349,8 +349,8 @@ export default function CalculatorSection() {
                     </p>
                     <p className="text-[13px] text-[#8B9BB4] leading-relaxed">
                       There is no published plan. Pricing is scoped to your ICP complexity, signal volume,
-                      delivery cadence, and service tier. Most clients find the total cost — engine,
-                      enrichment, and ops — comes in below what they currently spend on data subscriptions
+                      delivery cadence, and service tier. Most clients find the total cost - engine,
+                      enrichment, and ops - comes in below what they currently spend on data subscriptions
                       and agency retainers combined.
                     </p>
                     <p className="mt-3 text-[13px] text-foreground">
@@ -422,7 +422,7 @@ export default function CalculatorSection() {
 
                 <div>
                   <div className="grid gap-3 sm:grid-cols-3">
-                    {/* Column 1 — Current */}
+                    {/* Column 1 - Current */}
                     <div className="rounded border border-border bg-card px-4 py-4">
                       <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
                         Current ops
@@ -434,7 +434,7 @@ export default function CalculatorSection() {
                       </div>
                     </div>
 
-                    {/* Column 2 — With RR */}
+                    {/* Column 2 - With RR */}
                     <div className="rounded border border-primary bg-emerald-950 px-4 py-4">
                       <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-emerald-600">
                         With signal-led infrastructure (per client)
@@ -449,7 +449,7 @@ export default function CalculatorSection() {
                       </p>
                     </div>
 
-                    {/* Column 3 — Hours freed */}
+                    {/* Column 3 - Hours freed */}
                     <div className="rounded border border-border bg-card px-4 py-4">
                       <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
                         Hours freed

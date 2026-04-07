@@ -3,6 +3,17 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactCompiler: true,
 
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "richiereach.tech" }],
+        destination: "https://www.richiereach.tech/:path*",
+        permanent: true,
+      },
+    ];
+  },
+
   async headers() {
     return [
       {

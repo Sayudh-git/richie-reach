@@ -46,7 +46,6 @@ const Difference = () => {
                         transition={{ duration: 0.6 }}
                     >
                         Built <span className="font-serif italic text-emerald-400">for timing</span>.
-                        <span className="sr-only"> — LinkedIn engagement leads vs static databases</span>
                     </motion.h2>
                     <motion.p
                         className="text-[#737373] text-lg text-center max-w-2xl"

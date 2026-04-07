@@ -109,7 +109,7 @@ const ROWS: DeliveryRow[] = [
     age: '6 days ago',
     engClass: 'surface_engagement',
     score: 0.41,
-    emailDisplay: '—',
+    emailDisplay: '-',
     emailBlurred: false,
     routing: '',
     belowGate: true,
@@ -200,7 +200,7 @@ export default function SampleDeliverySection() {
                   <td className="px-3 py-2 font-mono text-[12px] text-foreground whitespace-nowrap">
                     {row.belowGate ? (
                       <span className="bg-[#991B1B] text-[#FCA5A5] text-[10px] px-1.5 py-0.5 rounded font-mono">
-                        Below gate — not delivered
+                        Below gate - not delivered
                       </span>
                     ) : row.routing}
                   </td>

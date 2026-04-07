@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { motion } from 'motion/react'
 import CodePanel from '@/components/how-it-works/ui/CodePanel'
 
@@ -25,7 +26,7 @@ const HUBSPOT_RECORD = `
 const DEAL_STAGES = [
   'Signal Captured',
   'Sequence Active',
-  'Replied — Positive',
+  'Replied - Positive',
   'Meeting Booked',
   'Proposal Sent',
   'Closed',
@@ -50,11 +51,16 @@ export default function Section11() {
           from a closed deal back to the signal theme, engagement class, and composite score at time
           of capture is available in the CRM. This is the feedback loop that improves the scoring
           model over time.
-          Every closed-won deal traces back to the signal theme and engagement class that triggered it —
+          {' '}
+          <Link href="/integrations/hubspot" className="text-primary hover:underline">
+            See how HubSpot sync works
+          </Link>
+          {' '}
+          Every closed-won deal traces back to the signal theme and engagement class that triggered it -
           which is how the scoring model gets better over time, not just for reporting.
         </p>
 
-        <CodePanel code={HUBSPOT_RECORD} language="json" label="HubSpot contact record — example" />
+        <CodePanel code={HUBSPOT_RECORD} language="json" label="HubSpot contact record - example" />
 
         <div className="mt-8">
           <p className="mb-3 section-label">

@@ -1,0 +1,54 @@
+{
+  "strategy": "Submit URLs to Google Search Console in three batches over 14 days. Do not use Request Indexing for all URLs on day 1. Let Google discover lower-priority pages naturally via sitemap. Manually request indexing only for Tier 1 and Tier 2 pages. Current sitemap has 38 URLs because prior SEO work added /about, /alternatives/trigify, and /alternatives/phantombuster alongside the prompt baseline.",
+  "tier1_submit_day_1": [
+    "https://www.richiereach.tech/",
+    "https://www.richiereach.tech/how-it-works",
+    "https://www.richiereach.tech/about",
+    "https://www.richiereach.tech/methodology",
+    "https://www.richiereach.tech/pricing"
+  ],
+  "tier2_submit_day_4_to_7": [
+    "https://www.richiereach.tech/what-is-signal-led-outbound",
+    "https://www.richiereach.tech/linkedin-engagement-leads",
+    "https://www.richiereach.tech/richie-reach-vs-static-databases",
+    "https://www.richiereach.tech/for-agencies",
+    "https://www.richiereach.tech/for-sdr-teams",
+    "https://www.richiereach.tech/for-saas",
+    "https://www.richiereach.tech/integrations/clay",
+    "https://www.richiereach.tech/integrations/hubspot",
+    "https://www.richiereach.tech/alternatives/trigify",
+    "https://www.richiereach.tech/alternatives/phantombuster",
+    "https://www.richiereach.tech/signal-feed-explained",
+    "https://www.richiereach.tech/outbound-glossary",
+    "https://www.richiereach.tech/signal-led-vs-account-based",
+    "https://www.richiereach.tech/how-to-use-linkedin-for-outbound",
+    "https://www.richiereach.tech/blog"
+  ],
+  "tier3_sitemap_only_no_manual_request": [
+    "https://www.richiereach.tech/blog/filter-before-enrichment",
+    "https://www.richiereach.tech/blog/what-is-intent-data-b2b",
+    "https://www.richiereach.tech/blog/signal-decay-outbound",
+    "https://www.richiereach.tech/blog/enrichment-waterfall-clay",
+    "https://www.richiereach.tech/blog/weekly-outbound-queue",
+    "https://www.richiereach.tech/blog/b2b-outbound-timing-problem",
+    "https://www.richiereach.tech/blog/cold-email-deliverability-list-quality",
+    "https://www.richiereach.tech/blog/icp-filtering-outbound",
+    "https://www.richiereach.tech/blog/linkedin-comment-leads-quality",
+    "https://www.richiereach.tech/blog/outbound-without-spray-and-pray",
+    "https://www.richiereach.tech/blog/why-cold-email-gets-no-replies",
+    "https://www.richiereach.tech/blog/outbound-stack-early-stage-startup",
+    "https://www.richiereach.tech/blog/how-to-find-high-intent-linkedin-prospects",
+    "https://www.richiereach.tech/blog/is-apollo-enough-or-do-you-need-intent-data",
+    "https://www.richiereach.tech/blog/how-to-personalize-cold-email-at-scale",
+    "https://www.richiereach.tech/blog/do-you-need-trigify-or-is-clay-enough",
+    "https://www.richiereach.tech/blog/outbound-attribution-hubspot",
+    "https://www.richiereach.tech/blog/sales-triggers-b2b-outbound"
+  ],
+  "notes": {
+    "sitemap_already_submitted": false,
+    "search_console_verified": false,
+    "bing_webmaster_submitted": false,
+    "day_1_urls_submitted": false,
+    "day_4_urls_submitted": false
+  }
+}

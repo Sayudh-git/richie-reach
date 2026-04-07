@@ -1,37 +1,64 @@
 # Richie Reach
 
-> LinkedIn engagement leads for outbound teams. We monitor public LinkedIn post engagement — comments, reactions, and shares — to find prospects actively signaling buying intent around your keywords.
+> Richie Reach is a signal-led outbound engine for B2B sales teams. It captures public LinkedIn engagement around client-defined keyword themes, filters prospects to the client's ICP before enrichment, classifies behavioral intent with AI, scores records, runs an enrichment waterfall, and delivers a weekly qualified prospect feed into Clay, HubSpot, CSV, or webhook. Built and operated by Sayudh Mukherjee, technical founder.
 
-## What Richie Reach Does
+## Key pages
 
-Richie Reach is a B2B lead generation service that captures real-time engagement signals from LinkedIn. Instead of selling static databases or requiring you to operate complex tools, we deliver weekly queues of ICP-filtered, enriched prospects who recently engaged with content relevant to your offer.
+- [Homepage](https://www.richiereach.tech/): Product overview, comparison to static databases, integration list, persona use cases, and FAQ.
+- [About Richie Reach](https://www.richiereach.tech/about): Who built Richie Reach, what it is, what it is not, and how to get in contact. Covers the founder Sayudh Mukherjee, the in-house build, and the managed service model.
+- [How It Works](https://www.richiereach.tech/how-it-works): Full nine-stage pipeline documentation including signal monitor config, ICP gate logic, AI classification classes, composite scoring model, enrichment waterfall cost breakdown, outreach sequence structure, and HubSpot CRM sync.
+- [What Is Signal-Led Outbound](https://www.richiereach.tech/what-is-signal-led-outbound): Definition of signal-led outbound, how it differs from list-based outbound, what counts as a valid signal, and when the approach works.
+- [LinkedIn Engagement Leads](https://www.richiereach.tech/linkedin-engagement-leads): What LinkedIn engagement leads are, what qualifies as a signal, what gets filtered out, and when engagement leads work in outbound.
+- [Signal-Led Outbound vs Static Databases](https://www.richiereach.tech/richie-reach-vs-static-databases): Comparison of signal-led outbound and database-based outbound: what each answers, tradeoffs, and when each approach fits.
+- [For Outbound Agencies](https://www.richiereach.tech/for-agencies): How outbound agencies use Richie Reach for white-label signal feeds, multi-client delivery, and differentiation on timing instead of volume.
+- [For SDR Teams](https://www.richiereach.tech/for-sdr-teams): How SDR teams use Richie Reach for a prioritized weekly prospect queue, deliverability protection, and signal context for openers.
+- [For B2B SaaS Teams](https://www.richiereach.tech/for-saas): How B2B SaaS companies with high ACVs and long sales cycles use signal timing to reach prospects during active evaluation windows.
+- [Clay Integration](https://www.richiereach.tech/integrations/clay): How Richie Reach delivers records into Clay tables with signal metadata fields, and how teams route records from the Clay table into enrichment and sending workflows.
+- [HubSpot Integration](https://www.richiereach.tech/integrations/hubspot): How Richie Reach syncs enriched prospect records to HubSpot with signal metadata as contact properties, and how the attribution loop works for closed deals.
+- [Methodology](https://www.richiereach.tech/methodology): Full technical methodology: signal capture cadence, ICP gate logic, AI classification classes and weights, composite scoring formula, enrichment waterfall tools and cost, delivery format, and CRM feedback loop.
+- [Pricing](https://www.richiereach.tech/pricing): How Richie Reach pricing is scoped (ICP complexity, signal volume, delivery cadence, service tier), why there is no published plan, and how the pilot works.
+- [Trigify Alternative](https://www.richiereach.tech/alternatives/trigify): Comparison page explaining how Richie Reach differs from Trigify for LinkedIn engagement-led outbound and managed signal-to-queue workflows.
+- [PhantomBuster Alternative](https://www.richiereach.tech/alternatives/phantombuster): Comparison page explaining how Richie Reach differs from PhantomBuster for LinkedIn signal workflows and managed prospect queue delivery.
+- [What Is a B2B Signal Feed](https://www.richiereach.tech/signal-feed-explained): Definition of a signal feed for outbound, what it contains, how it differs from a contact database, and when it is useful.
+- [Outbound Glossary](https://www.richiereach.tech/outbound-glossary): Plain-language definitions of key terms: signal feed, ICP, ICP gate, composite score, engagement class, signal decay, enrichment waterfall, spray and pray, and signal-led outbound.
+- [Signal-Led Outbound vs ABM](https://www.richiereach.tech/signal-led-vs-account-based): Comparison of signal-led outbound and account-based marketing: how each works, when each fits, and how to combine them.
+- [How to Use LinkedIn for B2B Outbound](https://www.richiereach.tech/how-to-use-linkedin-for-outbound): What LinkedIn signals exist, how to find them manually, what to do with them, and when to automate the process.
+- [Blog Index](https://www.richiereach.tech/blog): Operational writing on signal-led outbound, ICP filtering, enrichment, deliverability, and prospect queue design.
+- [Why You Should Filter Before Enrichment](https://www.richiereach.tech/blog/filter-before-enrichment): Why running ICP filters before enrichment reduces wasted credits, protects deliverability, and produces cleaner prospect lists than enrich-everything approaches.
+- [What Is Intent Data in B2B Outbound](https://www.richiereach.tech/blog/what-is-intent-data-b2b): What intent data means in a B2B outbound context, the difference between behavioral signals and third-party intent feeds, and when signal evidence is reliable.
+- [Signal Decay: Why Outreach Timing Degrades Fast](https://www.richiereach.tech/blog/signal-decay-outbound): How quickly a public engagement signal loses outreach relevance, why stale signals produce worse results than no signal at all, and what a workable freshness window looks like.
+- [How to Build an Enrichment Waterfall in Clay](https://www.richiereach.tech/blog/enrichment-waterfall-clay): A step-by-step explanation of enrichment waterfall logic using Prospeo, Apollo, and Hunter inside Clay, including cost per run with and without an ICP gate upstream.
+- [How to Build a Weekly Outbound Prospect Queue](https://www.richiereach.tech/blog/weekly-outbound-queue): Why a smaller, weekly-refreshed queue outperforms a giant static list for outbound teams, and what the right inputs to a weekly queue look like.
+- [The B2B Outbound Timing Problem](https://www.richiereach.tech/blog/b2b-outbound-timing-problem): Why the correct prospect at the wrong time behaves like the wrong prospect, how most outbound stacks ignore timing entirely, and what a timing signal actually tells you.
+- [How List Quality Affects Cold Email Deliverability](https://www.richiereach.tech/blog/cold-email-deliverability-list-quality): The direct relationship between what goes into a sending list and what happens to domain reputation, bounce rate, and reply rate over time.
+- [ICP Filtering: What It Is and Why Order Matters](https://www.richiereach.tech/blog/icp-filtering-outbound): What ICP filtering means operationally, why most teams filter too late in their workflow, and what changes when you gate before enrichment instead of after.
+- [What Makes a Good LinkedIn Engagement Signal](https://www.richiereach.tech/blog/linkedin-comment-leads-quality): The difference between a high-signal LinkedIn comment and noise, how to classify engagement quality before outreach, and when engagement evidence is worth acting on.
+- [Outbound Without Spray and Pray](https://www.richiereach.tech/blog/outbound-without-spray-and-pray): What spray-and-pray outbound actually costs in deliverability and SDR time, and what a tighter, signal-first approach looks like mechanically.
+- [Why Cold Email Gets No Replies](https://www.richiereach.tech/blog/why-cold-email-gets-no-replies): Diagnostic framework for cold email reply rate problems. List quality and timing come before copy.
+- [Outbound Stack for Early-Stage Startups](https://www.richiereach.tech/blog/outbound-stack-early-stage-startup): What tools an early-stage startup or solo founder actually needs to run outbound, and what to skip.
+- [How to Find High-Intent LinkedIn Prospects](https://www.richiereach.tech/blog/how-to-find-high-intent-linkedin-prospects): Manual method for finding people currently engaging with relevant LinkedIn content, and when to automate it.
+- [Is Apollo Enough or Do You Need Intent Data](https://www.richiereach.tech/blog/is-apollo-enough-or-do-you-need-intent-data): When a contact database alone is sufficient and when a signal layer changes the output.
+- [How to Personalize Cold Email at Scale](https://www.richiereach.tech/blog/how-to-personalize-cold-email-at-scale): Signal-based personalization versus AI-generated icebreakers and manual research.
+- [Do You Need Trigify or Is Clay Enough](https://www.richiereach.tech/blog/do-you-need-trigify-or-is-clay-enough): Clay is enrichment. Signal tools are the input layer. They solve different gaps.
+- [Outbound Attribution in HubSpot](https://www.richiereach.tech/blog/outbound-attribution-hubspot): How to track why a contact was reached out to, not just what happened after.
+- [Sales Triggers for B2B Outbound](https://www.richiereach.tech/blog/sales-triggers-b2b-outbound): Evaluation framework for job change, funding, website visit, hiring, and LinkedIn engagement signals.
 
-## How It Works
+## Product details
 
-1. **Signal Capture**: We monitor public LinkedIn engagement (comments, reactions, posts) around your target keywords and themes. No client account access required.
-2. **ICP Filtering**: Every signal is matched against your Ideal Customer Profile — geography, role, seniority, industry, company size.
-3. **Enrichment & Delivery**: Qualified leads are enriched with verified email, company data, and engagement context, then delivered weekly via CSV, Clay, or direct webhook.
+Signal capture: Public LinkedIn engagement (comments, reactions, shares) around client-defined keyword themes. Cron-based monitor polling every 4 hours. Deduplication by LinkedIn URN hash.
 
-## Key Differentiators
+ICP gate: Runs before enrichment. Hard gates (title, geography, company size) drop records immediately. Soft gates (industry, funding stage, tech stack) reduce composite score.
 
-- **Engagement-led, not database-led**: Prospects are identified from recent LinkedIn activity, not scraped from stale databases.
-- **Signals delivered within 24 hours**: Weekly queues capture engagement from the past 7 days. No months-old contacts.
-- **Done-for-you or signal feed**: Full GTME (Go-To-Market Execution) service, or just the upstream signal feed — you choose.
-- **No scraping tool**: This is a managed service, not a Chrome extension or self-serve platform.
-- **Suppression lists and opt-outs**: We maintain suppression lists and respect removal requests.
+AI classification classes: evaluating (0.82 weight), active_buyer (0.78), category_engaged (0.52), surface_engagement (0.18), disqualified (0.00).
 
-## Integrations
+Composite score range: 0.00 to 1.00. Records below 0.52 are not enriched and not delivered.
 
-CSV download, Clay, Zapier, Webhook, Smartlead, Lemlist, Instantly, HubSpot, Salesforce, Slack. Custom integrations available.
+Enrichment waterfall: Prospeo (primary, ~83% match rate), Apollo (fallback), Hunter (domain pattern). If all miss, record delivered with LinkedIn URL only.
 
-## Pricing
+Delivery formats: CSV, Clay table (webhook), direct webhook to Smartlead, Lemlist, Instantly, HubSpot, or custom API endpoint.
 
-Volume-based pricing depending on ICP complexity and service level. Starts with a free 7-day pilot to validate fit. No long-term commitment required to test.
+Service tiers: Signal Feed (client manages Clay and sending), Signal Feed plus Routing (Richie Reach manages Clay and delivery), Managed Outbound (Richie Reach runs signal to reply).
 
-## Getting Started
+Pricing: Variable. Scoped to ICP complexity, signal volume, delivery cadence, and service tier. Starts with a 7-day pilot.
 
-Book a 20-minute call to discuss your ICP, keywords, and signal themes. If it's a fit, we run a 7-day pilot to deliver a sample feed.
-
-- Website: https://richiereach.tech
-- Contact: hello@richiereach.com
-- Full details: https://richiereach.tech/llms-full.txt
+Contact: hello@richiereach.com

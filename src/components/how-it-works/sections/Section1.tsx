@@ -27,7 +27,7 @@ const TOTAL = ALL_TOOLS.length
 const STEP_MS = 600
 const PAUSE_MS = 2200
 
-// Filled LinkedIn logo — same as marketing hero
+// Filled LinkedIn logo - same as marketing hero
 function LinkedInFilledIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -78,7 +78,7 @@ export default function Section1() {
       <div className="pointer-events-none absolute inset-0 rr-dot-grid opacity-60" />
 
       <div className="relative">
-        {/* Zone 1 — Statement block */}
+        {/* Zone 1 - Statement block */}
         <div>
           <p className="mb-6 section-label">
             Signal-Led Outbound Engine
@@ -95,7 +95,7 @@ export default function Section1() {
                 LinkedIn
               </span>{' '}
               engagement, filters it to your ICP, classifies it with{' '}
-              {/* AI — bold with sparkle icon superscript */}
+              {/* AI - bold with sparkle icon superscript */}
               <span className="relative inline-block font-bold">
                 AI
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -127,13 +127,13 @@ export default function Section1() {
         {/* Divider */}
         <div className="border-t border-border" />
 
-        {/* Zone 2 — Tools strip */}
+        {/* Zone 2 - Tools strip */}
         <div className="pt-10 mt-10">
           <p className="mb-5 section-label">
             Tools in the stack
           </p>
 
-          {/* Chip row — wraps on mobile, single row on md+ */}
+          {/* Chip row - wraps on mobile, single row on md+ */}
           <div>
             <div className="flex flex-wrap items-center gap-2">
               {TOOLS_GROUPS.map((group, gi) => (

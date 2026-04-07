@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import MultichannelGrid from '@/components/how-it-works/ui/MultichannelGrid'
 
 export default function Section10() {
@@ -10,6 +11,11 @@ export default function Section10() {
         <h2 className="mb-5 text-3xl text-foreground">Email first. LinkedIn second. One coherent sequence.</h2>
         <p className="mb-10 max-w-xl text-[15px] leading-[1.75] text-muted-foreground">
           Every qualified, scored, enriched record is pushed into Lemlist via Clay webhook. Lemlist
+          {' '}
+          <Link href="/integrations/clay" className="text-primary hover:underline">
+            See how Richie Reach delivers records into Clay
+          </Link>
+          {' '}
           handles the multichannel coordination. Email from ZapMail mailboxes, LinkedIn profile
           visits, connection requests, and direct messages. Reply detection pauses the sequence
           automatically at any step.

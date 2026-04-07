@@ -46,13 +46,13 @@ export default function Section3() {
           Each captured event includes the profile URL, engagement type, post context, and timestamp.
           Deduplication runs on a LinkedIn URN hash. The same person appearing across multiple posts
           in the same week is merged to one record with engagement count incremented.
-          The monitoring engine is built and maintained in-house — no third-party listener, no shared
+          The monitoring engine is built and maintained in-house - no third-party listener, no shared
           account pool, no platform dependency.
         </p>
         <CodePanel
           code={MONITOR_CONFIG}
           language="json"
-          label="Monitor config — example client setup"
+          label="Monitor config - example client setup"
         />
       </motion.div>
     </section>

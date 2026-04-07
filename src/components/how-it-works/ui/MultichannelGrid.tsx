@@ -189,13 +189,13 @@ export default function MultichannelGrid() {
       {/* Desktop grid */}
       <div className="hidden md:block overflow-x-auto">
         <div className="relative min-w-[700px]">
-          {/* Flowing scan highlight — sweeps left-to-right over the grid */}
+          {/* Flowing scan highlight - sweeps left-to-right over the grid */}
           <motion.div
             className="pointer-events-none absolute inset-y-0 w-[240px] bg-gradient-to-r from-transparent via-[#2DD4BF]/[0.04] to-transparent"
             animate={{ x: ['-240px', '800px'] }}
             transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', repeatDelay: 3 }}
           />
-          {/* Header row — days */}
+          {/* Header row - days */}
           <div className="grid grid-cols-[80px_repeat(7,1fr)] gap-1">
             <div />
             {DAYS.map((day, colIndex) => (
@@ -319,7 +319,7 @@ export default function MultichannelGrid() {
         </div>
       </div>
 
-      {/* Reply row — full width */}
+      {/* Reply row - full width */}
       <motion.div
         className="mt-3 rounded border border-primary bg-emerald-950 px-4 py-3"
         animate={{ opacity: [0.9, 1, 0.9] }}

@@ -24,14 +24,14 @@ const Cta = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.7 }}
                     >
-                        {/* Hover border glow — sits behind content */}
+                        {/* Hover border glow - sits behind content */}
                         <div className="absolute inset-0 rounded-3xl md:rounded-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
                             style={{
                                 background: 'linear-gradient(135deg, rgba(16,185,129,0.15) 0%, transparent 50%, rgba(16,185,129,0.08) 100%)',
                             }}
                         />
 
-                        {/* Sweep shimmer — diagonal light sweep on hover */}
+                        {/* Sweep shimmer - diagonal light sweep on hover */}
                         <div
                             className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                             style={{

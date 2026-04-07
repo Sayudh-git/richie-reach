@@ -69,7 +69,7 @@ export interface ModeBResult {
 export function calcModeA(inputs: ModeAInputs): ModeAResult {
   const { monthlyDataSpend, weeklyVolume, currentReplyRate, avgDealValue } = inputs
 
-  // Current setup — full unfiltered volume
+  // Current setup - full unfiltered volume
   const monthlyVolume = weeklyVolume * WEEKS_PER_MONTH
   const enrichmentWaste = monthlyVolume * ICP_FAIL_RATE_UNFILTERED * BLENDED_ENRICHMENT_COST
   const replies = monthlyVolume * (currentReplyRate / 100)
@@ -77,7 +77,7 @@ export function calcModeA(inputs: ModeAInputs): ModeAResult {
   const totalCurrentCost = monthlyDataSpend + enrichmentWaste
   const cpmCurrent = meetings > 0 ? totalCurrentCost / meetings : 0
 
-  // With Richie Reach — ICP-filtered contacts at signal reply rate
+  // With Richie Reach - ICP-filtered contacts at signal reply rate
   const rrContacts = weeklyVolume * ICP_PASS_RATE_SIGNAL_LED * WEEKS_PER_MONTH
   const signalReplyRate = Math.min(currentReplyRate * SIGNAL_REPLY_UPLIFT_MULTIPLIER, 12)
   const rrReplies = rrContacts * (signalReplyRate / 100)

@@ -15,7 +15,7 @@ const Footer = () => {
                             Richie Reach
                         </h3>
                         <p className="text-[13px] text-[#808080]">
-                            LinkedIn engagement leads for outbound teams.
+                            Signal feeds for outbound teams.
                         </p>
                     </div>
 
@@ -27,16 +27,18 @@ const Footer = () => {
                         <ul className="space-y-2">
                             {[
                                 { label: "How It Works", href: "/how-it-works" },
+                                { label: "About", href: "/about" },
+                                { label: "Blog", href: "/blog" },
                                 { label: "Who It's For", href: "#who-its-for" },
                                 { label: "FAQ", href: "#faq" }
                             ].map((link) => (
                                 <li key={link.label}>
-                                    <a
+                                    <Link
                                         href={link.href}
                                         className="text-sm text-[#A0A0A0] hover:text-white transition-colors duration-200"
                                     >
                                         {link.label}
-                                    </a>
+                                    </Link>
                                 </li>
                             ))}
                         </ul>
@@ -56,7 +58,11 @@ const Footer = () => {
                 {/* Founder line */}
                 <div className="mt-8 text-center">
                   <p className="text-xs text-[#4A5568]">
-                    Built and operated by Sayudh Mukherjee — technical founder, not an agency.
+                    Built and operated by{" "}
+                    <Link href="/about" className="text-[#A0A0A0] hover:text-white transition-colors duration-200">
+                        Sayudh Mukherjee
+                    </Link>{" "}
+                    - technical founder, not an agency.
                   </p>
                 </div>
 

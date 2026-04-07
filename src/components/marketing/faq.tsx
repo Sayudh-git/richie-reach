@@ -55,7 +55,7 @@ const FAQ = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.1 }}
                 >
-                    Frequently asked questions<span className="sr-only"> about LinkedIn engagement lead generation</span><span className="text-[#00FF94]">?</span>
+                    Frequently asked questions<span className="text-[#00FF94]">?</span>
                 </motion.h2>
 
                 {/* Subheadline */}

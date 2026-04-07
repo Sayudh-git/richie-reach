@@ -88,7 +88,7 @@ const Socials = () => {
             <Wrapper>
                 <Container animation="fadeUp" className="text-center">
                     <p className="text-sm text-transparent font-heading font-medium bg-clip-text bg-linear-to-r from-white/10 via-white/70 to-white/10 uppercase tracking-wider">
-                        Works seamlessly with
+                        Works with
                     </p>
                 </Container>
 

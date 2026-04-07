@@ -116,7 +116,6 @@ const Capibilities = () => {
                     <span className="text-white">What you </span>
                     <span className="font-serif italic text-[#00FF94]">get</span>
                     <span className="text-white">.</span>
-                    <span className="sr-only"> — Weekly ICP-filtered LinkedIn engagement leads delivered to your stack</span>
                 </motion.h2>
 
                 <motion.p

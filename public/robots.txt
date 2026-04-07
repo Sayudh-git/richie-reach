@@ -3,20 +3,20 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://richiereach.tech/sitemap.xml
+Sitemap: https://www.richiereach.tech/sitemap.xml
 
 # Block unnecessary paths
 Disallow: /_next/static/
 Disallow: /api/
 
-# Search engines — explicitly allowed
+# Search engines - explicitly allowed
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
 Allow: /
 
-# AI Search/Retrieval bots — allowed
+# AI Search/Retrieval bots - allowed
 User-agent: OAI-SearchBot
 Allow: /
 
@@ -50,7 +50,7 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
-# AI Training bots — disallowed
+# AI Training bots - disallowed
 User-agent: GPTBot
 Disallow: /
 

@@ -351,7 +351,7 @@ body {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* How It Works — calculator slider v2 */
+/* How It Works - calculator slider v2 */
 input[type='range'].rr-slider-v2 {
   -webkit-appearance: none;
   appearance: none;

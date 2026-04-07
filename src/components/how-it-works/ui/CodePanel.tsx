@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useMemo } from 'react'
 
-/* Lightweight JSON syntax colorizer — replaces react-syntax-highlighter (~40KB) */
+/* Lightweight JSON syntax colorizer - replaces react-syntax-highlighter (~40KB) */
 
 const COLORS = {
   key: '#7DD3FC',

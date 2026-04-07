@@ -113,10 +113,10 @@ export default function Section6() {
             </div>
           </div>
 
-          {/* Down connector — fan out */}
+          {/* Down connector - fan out */}
           <BranchConnector direction="down" />
 
-          {/* 4 Skill Agents — 2×2 grid */}
+          {/* 4 Skill Agents - 2×2 grid */}
           <div className="grid gap-3 sm:grid-cols-2">
             {SKILL_AGENTS.map((agent) => (
               <div key={agent.name} className="rounded border border-border bg-background px-5 py-5 transition-all duration-200 hover:border-white/[0.12] hover:shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
@@ -138,7 +138,7 @@ export default function Section6() {
             ))}
           </div>
 
-          {/* Up connector — fan in */}
+          {/* Up connector - fan in */}
           <BranchConnector direction="up" />
 
           {/* Output node */}

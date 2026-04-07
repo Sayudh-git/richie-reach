@@ -35,7 +35,6 @@ const Integrations = () => {
                     >
                         The center of your <br className="hidden md:block" />
                         <span className="font-serif italic text-emerald-400">outbound universe</span>.
-                        <span className="sr-only"> — Integrations with Clay, HubSpot, Smartlead, Lemlist, Salesforce, and more</span>
                     </motion.h2>
 
                     <motion.p

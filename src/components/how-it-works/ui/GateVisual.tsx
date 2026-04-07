@@ -48,7 +48,7 @@ export default function GateVisual({ rawRecords, passedRecords }: GateVisualProp
 
   return (
     <div ref={ref} className="grid grid-cols-1 gap-4 md:grid-cols-[1fr_160px_1fr]">
-      {/* Left — Raw Signals */}
+      {/* Left - Raw Signals */}
       <div>
         <p className="mb-3 font-mono text-xs tracking-widest text-muted-foreground uppercase">Raw Signals</p>
         <div className="space-y-1.5">
@@ -82,7 +82,7 @@ export default function GateVisual({ rawRecords, passedRecords }: GateVisualProp
         </div>
       </div>
 
-      {/* Center — Gate criteria */}
+      {/* Center - Gate criteria */}
       <div className="flex flex-col items-center">
         <p className="mb-3 font-mono text-xs tracking-widest text-muted-foreground uppercase">ICP Gate</p>
         <div className="flex flex-col items-center gap-1.5 w-full">
@@ -108,7 +108,7 @@ export default function GateVisual({ rawRecords, passedRecords }: GateVisualProp
         </div>
       </div>
 
-      {/* Right — Passed ICP */}
+      {/* Right - Passed ICP */}
       <div>
         <p className="mb-3 font-mono text-xs tracking-widest text-muted-foreground uppercase">Passed ICP</p>
         <div className="space-y-1.5">

@@ -51,7 +51,6 @@ const Workflow = () => {
                         transition={{ duration: 0.6 }}
                     >
                         How it <span className="font-serif italic text-emerald-400">works</span>.
-                        <span className="sr-only"> — LinkedIn engagement lead generation in 3 steps</span>
                     </motion.h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-16 w-full max-w-6xl mx-auto">
